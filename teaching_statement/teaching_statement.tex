@@ -1,0 +1,170 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------------------------------------------------------------
+%  Teaching Statement -- Stanisław Szufa
+%  EPFL IC Faculty Search 2026
+% ---------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\renewcommand{\ttdefault}{lmtt}  % outline typewriter font (avoids bitmap ectt)
+\usepackage[margin=2.0cm,top=1.8cm,bottom=1.9cm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{160,20,30}   % same accent as the research statement
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{9pt}{3pt}
+\titleformat{\subsection}[runin]{\normalsize\bfseries}{}{0pt}{}[.]
+\titlespacing*{\subsection}{0pt}{5pt}{0.6em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist{nosep,leftmargin=1.2em}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Teaching Statement}\\[3pt]
+  {\large Stanisław Szufa}\\[1pt]
+  {\small University of Geneva \;$\cdot$\; \href{https://szufa.pl}{szufa.pl}}
+\end{center}
+\vspace{2pt}
+
+% ===============================================================
+\section{Teaching Philosophy: Learning by Measuring}
+% ===============================================================
+
+The most useful thing I learned during my PhD, I had to learn on my own.
+My advisor's work was theoretical, and when I wanted to know how voting rules
+actually behave, nobody around me could tell me how to design a numerical
+experiment, which data to use, or how to tell a real finding from an artifact
+of the generator. Working this out became my thesis, and then a tutorial, a
+community guide, and two software libraries, so that others would not have to
+start from scratch. This experience shapes how I teach. I want students to
+\emph{measure} the objects they study, not only to prove things about them,
+because a student who has computed a Kemeny ranking on a real election and
+watched the ILP solver stall on a specific kind of profile understands
+NP-hardness in a way that no reduction on a blackboard can give.
+
+In practice, this means three things in my courses:
+\begin{itemize}
+  \item \emph{Every abstraction comes with an instance.} I introduce a
+  definition together with a dataset or a generator on which students can
+  try it in the same session. In my field this is easy: a city's
+  participatory budget is a real election with real stakes, and students can
+  load one from Pabulib, run three voting rules on it, and argue about which
+  outcome is fairer before they have seen a single axiom.
+  \item \emph{Students should discover, not only verify.} The exercises I
+  like best have an answer that I do not know in advance. ``Which statistical
+  culture best approximates the preferences of Warsaw's residents?'' is a
+  question a second-year student can attack with the tools from my research,
+  and the answers are sometimes publishable.
+  \item \emph{Tools are part of the curriculum.} Writing clean, reproducible
+  experimental code is a skill that most students are never taught. I teach
+  it explicitly, using \texttt{prefsampling} and \texttt{mapel} as both
+  examples and infrastructure, and I ask students to contribute to them
+  instead of writing throwaway scripts.
+\end{itemize}
+
+% ===============================================================
+\section{Teaching Experience}
+% ===============================================================
+
+As a Teaching and Research Assistant at Jagiellonian University (2018--2021),
+I taught the exercise sessions of three core bachelor courses in computer
+science: \emph{Introduction to Programming}, \emph{Logic and Set Theory}, and
+\emph{Linear Algebra}. These are first- and second-year courses with large
+cohorts and a wide spread of preparation, and they taught me to explain the
+same idea in several ways and to notice early which students are falling
+behind. % TODO: add cohort sizes, evaluation scores, or any teaching award if available
+They also cover the material I would most like to teach at the bachelor
+level at EPFL: programming, discrete mathematics, and algorithms are the
+foundation on which everything in my research stands.
+
+Beyond university courses, I have taught my research community. I gave a
+tutorial on numerical experiments in computational social choice at three of
+the major AI conferences, AAAI, AAMAS, and IJCAI, % TODO: add years
+and I co-authored the \emph{Guide to Numerical Experiments on Elections}
+(IJCAI-24), which is written as teaching material: it surveys how experiments
+have been done, explains what goes wrong, and gives concrete recommendations.
+The two open-source libraries I maintain, \texttt{prefsampling} and
+\texttt{mapel}, are used by other groups both for research and in student
+projects. I have also given more than twenty talks at conferences and
+seminars, and explaining voting rules to city officials and residents through
+\emph{Science for Democracy} has been the most demanding teaching I have done:
+the audience has no patience for notation and every question is about a real
+decision.
+
+% ===============================================================
+\section{Mentoring and Supervision}
+% ===============================================================
+
+I have co-supervised more than ten bachelor's and master's students, mostly at
+AGH University of Kraków, within an ERC-funded project, and at LAMSADE in
+Paris. Several of these projects grew into publications at AAAI, AAMAS, ECAI,
+and NeurIPS with the student as a coauthor. % TODO: name 2--3 students and papers (e.g. Nikolow ECAI'25, Mertlová/Nunn AAAI'25, Szwagierczak NeurIPS'25) and say where they are now
+My approach follows the way I was mentored and the way I would have liked to
+be:
+\begin{itemize}
+  \item \emph{Start small and concrete.} A student's first project is a
+  well-defined experimental question with a dataset and a tool already in
+  hand, so that the first result comes within weeks. Confidence comes from a
+  finished thing, however small.
+  \item \emph{Then hand over an open problem.} Once a student has shipped
+  something, I give them a question whose answer I do not know, and I expect
+  them to disagree with me. The best paper award I received at AAMAS-23 was
+  for a paper written by three PhD students without a senior coauthor, and I
+  want my own students to have that experience.
+  \item \emph{Teach the craft, not only the result.} I review students' code
+  and experimental design as carefully as their proofs, and I ask them to
+  present their work to the group early and often. Writing clearly and
+  presenting well are skills I teach deliberately, because they decide
+  whether good work is noticed.
+\end{itemize}
+As President of the PhD Students' Association at Jagiellonian University and
+as a representative in the Polish national association of doctoral
+candidates, I spent two years working on the conditions under which doctoral
+students work: funding, supervision rules, and representation in university
+bodies. I know from that work how much a student's success depends on things
+outside the research itself, and I will pay attention to them in my group.
+
+% ===============================================================
+\section{Teaching at EPFL}
+% ===============================================================
+
+\textbf{Existing courses.} I am prepared to teach core courses at the
+bachelor level, in particular introductory programming, discrete mathematics,
+algorithms, and theory of computation, and at the master level, artificial
+intelligence and algorithmic game theory. I speak French at a conversational
+level and am improving it actively; I expect to teach bachelor courses in
+French within my first years at EPFL. % TODO: adjust to what you are comfortable committing to
+
+\textbf{New courses.} I would like to develop two courses that do not yet
+exist in most computer science curricula:
+\begin{itemize}
+  \item \emph{Algorithms for Collective Decisions} (master level). Voting,
+  participatory budgeting, fair division, and matching, taught through the
+  lens of my research: every rule comes with real data, every axiom with an
+  experiment, and the project is a full study of a real participatory
+  process, from data to recommendation. The course would draw students from
+  computer science, data science, and the social sciences.
+  \item \emph{AI and Democracy} (master seminar). How language models change
+  collective decision-making: AI-mediated deliberation, LLM proxies,
+  representation in generated text, and the risks of each. The seminar would
+  combine recent papers with hands-on simulation, and it would be a natural
+  meeting point for students of the School of Computer and Communication
+  Sciences and of the humanities and social sciences at EPFL.
+\end{itemize}
+
+\textbf{Beyond the classroom.} Through Science for Democracy I have learned
+how to explain algorithms to people who will be governed by them, and I would
+bring this to EPFL: student projects with Swiss municipalities that run
+participatory budgets, public explanations of how their votes are counted,
+and open tools that residents can use. Teaching people why a proportional
+rule funded one project and not another is, to me, the same job as teaching
+students why an algorithm is correct.
+
+\end{document}

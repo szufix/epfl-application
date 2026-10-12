@@ -1,0 +1,326 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------------------------------------------------------------
+%  Research Statement -- Stanisław Szufa
+%  EPFL IC Faculty Search 2026
+% ---------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\renewcommand{\ttdefault}{lmtt}  % outline typewriter font (avoids bitmap ectt)
+\usepackage[margin=2.0cm,top=1.8cm,bottom=1.9cm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{160,20,30}   % EPFL-ish red; change freely
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{9pt}{3pt}
+\titleformat{\subsection}[runin]{\normalsize\bfseries}{}{0pt}{}[.]
+\titlespacing*{\subsection}{0pt}{5pt}{0.6em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist{nosep,leftmargin=1.2em}
+
+\newcommand{\thrust}[1]{\textbf{\color{accent}#1}}
+% Venue tag in place of a citation; full references are in the publication list.
+\newcommand{\venue}[1]{\,{\small(#1)}}
+% Open problem inside a thrust.
+\newcommand{\problem}[1]{\item \textbf{#1}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Research Statement}\\[3pt]
+  {\large Stanisław Szufa}\\[1pt]
+  {\small University of Geneva \;$\cdot$\; \href{https://szufa.pl}{szufa.pl}}
+\end{center}
+\vspace{2pt}
+
+% ===============================================================
+\section{Overview: Measuring Representation, from Ballots to Language}
+% ===============================================================
+
+Societies increasingly make collective decisions through algorithms. Cities
+allocate budgets with voting rules, parliaments are elected under competing
+electoral systems, and large language models now summarize public
+consultations and draft consensus statements. Each of these raises the same
+question: \emph{does the outcome faithfully represent the people it claims to
+represent?} Answering it requires a science of \emph{measurement} for
+collective decisions: principled ways to compare decision problems, to
+quantify the structure of preferences, and to evaluate outcomes against real
+data. Until recently, computational social choice had few such tools: it was
+a largely theoretical field, with scarce real data and experiments run on
+votes drawn uniformly at random. My work has changed this. I introduced the
+measurement tools, built the datasets, and helped set the experimental
+standards that the field now uses. At EPFL, I will take the next step:
+\textbf{measuring and guaranteeing representation as collective decisions
+move from ballots to language.}
+
+I bring three assets to this program. I built each of them, and each is now
+used by others:
+\begin{itemize}
+  \item \emph{A geometry of collective decisions.} I introduced \emph{maps of
+  elections}, based on distances that measure how similar two decision
+  problems are, independently of who the candidates and voters are. The
+  founding paper has over 60 citations, the line of work has been cited in
+  more than 120 papers, over 50 of them by researchers outside my circle of
+  coauthors, and reviewers now ask authors to use diverse data ``in the times
+  of the map of elections.''
+  \item \emph{Real data at scale.} I initiated \emph{Pabulib}, the largest
+  open repository of participatory budgeting data (2{,}053 elections from 30
+  cities in 8 countries, 8.6 million votes). Nearly all experimental research
+  on participatory budgeting now uses it, and its analyses helped convince
+  cities in Poland and across Europe to adopt the Method of Equal Shares.
+  \item \emph{A channel to practice.} I co-founded \emph{Science for
+  Democracy}, a nonprofit that helps municipalities adopt proportional voting
+  rules.
+\end{itemize}
+I have led this agenda from its start. As a PhD student, I was the principal
+investigator of a National Science Centre grant (NCN Preludium) on the
+\emph{election isomorphism problem}, which grew into maps of elections. The
+positionwise distance at the core of the framework was my own idea, I
+designed and implemented all the experiments and software behind it, and I am
+lead author of its central papers\venue{AAMAS'20, IJCAI'22, AIJ'25}. My thesis,
+the first in the field to take the whole space of elections as its object of
+study, was defended with distinction at AGH University in 2024 and received
+the Polish Prime Minister's Award (2025); my doctoral work also earned a START
+fellowship of the Foundation for Polish Science (2023). Since then, a CNRS
+postdoc at LAMSADE (Paris Dauphine-PSL) and my current position at the
+University of Geneva, where I build NLP pipelines for diplomatic and policy
+texts, have given me the tools to take this program into the domain of
+language.
+
+% ===============================================================
+\section{Past and Current Research}
+% ===============================================================
+
+\subsection{How similar are two elections? A geometry of collective decisions}
+Two elections may have entirely different candidates (presidential candidates
+vs.\ types of sushi), so a meaningful distance between them must be invariant
+to renaming candidates and reordering voters. In my NCN-funded project, we
+showed that the most natural such \emph{isomorphic distances}, such as the
+number of adjacent swaps needed to make two elections isomorphic, are NP-hard
+to compute, hard to approximate, and hard in the parameterized sense; even
+CPLEX and Gurobi fail on them\venue{AAAI'19; JCSS'25; AAAI'22; JAIR'24}. My
+answer was the \emph{positionwise distance}: represent each election by its
+positional matrix (how often each candidate takes each rank) and compute the
+optimal matching of candidates under the $\ell_1$ norm. It runs in polynomial
+time and is highly accurate in practice, and it let me draw the first \emph{map
+of elections}: compute pairwise distances among a collection of elections and
+embed them in the plane so that similar elections lie close to each
+other\venue{AAMAS'20}. We then gave the map interpretable reference
+points\venue{IJCAI'21}, extended it to approval elections, in a paper on
+statistical cultures for approval voting that the community now treats as the
+reference\venue{IJCAI'22}, to elections of different sizes through
+\emph{feature distances}\venue{AAAI'25}, and to preference learning: through
+the geometry of expected frequency matrices, we learn the parameters of the
+Mallows model in polynomial time, where earlier Kemeny-based approaches were
+NP-hard\venue{NeurIPS'22}. The full framework appeared in \emph{Artificial
+Intelligence}\venue{AIJ'25}.
+
+Maps turned out to be a methodology, not just a picture, and they corrected
+how the field ran experiments. They revealed that the Mallows model, the most
+popular model of random votes, had been used for years without normalizing its
+dispersion parameter by the number of candidates, so that its instances
+crowded into a narrow region of the space; the normalization I proposed is now
+standard. They showed that the running time of ILP solvers for NP-hard rules
+grows with an election's distance from impartial culture, and that a family of
+group-separable elections that no earlier paper on Dodgson's rule had
+considered is especially hard for it. They also showed how little of the space the available real-life elections
+covered, which motivated others to collect more: Boehmer and Schaar
+(AAMAS'23) added nearly 8{,}000 instances to PrefLib so that they could be
+placed on the map. I extended the framework to stable roommates and stable
+matching instances, in a paper with two fellow PhD students and no senior
+coauthor\venue{AAMAS'23 \emph{Best Student Paper Award}; JAIR'24}, and later
+to tournaments, fair division\venue{AAAI'26}, and voting rules themselves. To
+make the methodology standard practice, I co-authored a community
+guide\venue{IJCAI'24}, gave tutorials at AAAI, AAMAS, and IJCAI, and built two open-source
+Python libraries: \texttt{mapel}, for drawing maps, and
+\texttt{prefsampling}, for sampling synthetic preferences. The result is a
+shift in the field's standards: experiments on uniformly random votes alone
+are no longer accepted, and authors are expected to justify the diversity of
+their data.
+
+\subsection{Discovering structure in preferences}
+Beyond comparing elections, I develop measures of what is \emph{inside} them.
+Polarization has long been studied in political elections where voters name
+one party, but was almost entirely neglected for ordinal and approval ballots.
+We introduced indices of agreement, diversity, and polarization built on a
+single generalization of Kemeny's rule, \emph{$k$-Kemeny}, which seeks $k$
+representative rankings instead of one consensus; the problem is NP-hard, and
+we gave efficient approximation algorithms and extended the indices to
+approval elections\venue{IJCAI'23; IJCAI'26}, then used them to quantify how
+diverse structured preference domains are\venue{AAAI'26; AAMAS'26}. During my
+postdoc with J\'er\^ome Lang, I initiated and led a line of work that inverts
+the usual direction of the field: instead of designing a rule, we
+\emph{discover hidden properties of a preference dataset}, such as clones,
+antagonistic candidates, and diverse groups of candidates\venue{AAMAS'24;
+IJCAI'24}, and, in ongoing work, hidden structure among voters, such as
+clusters of similar voters and outliers. This brings social choice close to
+the central task of machine learning, finding structure in data, and it
+provides the measures I will use to quantify polarization among AI agents
+(Thrust~A). Closer to political science, I designed voting rules that let
+allied candidates avoid the spoiler effect\venue{AAMAS'24} and a
+nonparametric test for gerrymandering\venue{IJCAI'24}.
+
+\subsection{Real data and real deployments}
+In participatory budgeting (PB), residents vote on how to spend part of a
+city's budget. In 2020 I initiated \emph{Pabulib}, with D.~Stolicki and
+N.~Talmon, and I have led its development since\venue{IJCAI'23}. It now holds
+2{,}053 elections from 30 cities in 8 countries, with 8.6 million votes on
+over 38{,}000 projects. Most data came from Polish cities through
+freedom-of-information requests; researchers abroad now persuade their own
+cities to contribute, which is how Amsterdam and Budapest entered it. Pabulib
+is the standard dataset for PB research and, increasingly, for approval
+voting in general: more than 70 papers have used it, including work at
+Columbia, Toronto, and Amsterdam, and field studies of participatory
+processes in Switzerland and Taiwan. Real data opened questions
+that theory alone could not answer: learning realistic models of approval
+voting\venue{AAMAS'25}, measuring how well individual projects performed under
+a given rule\venue{IJCAI'24}, and a game-theoretic analysis of how proposers
+set project costs under the Method of Equal Shares\venue{NeurIPS'25}.
+
+This work reaches practice. The analyses in the Pabulib paper were used by the
+team, of which I am a member, that convinced cities in Poland and across Europe
+to adopt the Method of Equal Shares, starting with Wieliczka, the first city to
+use it. Proportional rules sometimes fund a costly project over a cheaper and
+more popular one, which is correct but surprising to residents, so I have also
+worked on ways of presenting outcomes that explain such decisions. In 2025 I
+co-founded \emph{Nauka dla Demokracji} (Science for Democracy), a nonprofit
+that connects researchers with the officials who run democratic processes.
+Pabulib now operates under its auspices, closing the loop between the data
+that cities produce and the research that improves their processes.
+
+\subsection{Toward language}
+At CNRS LAMSADE, I built simulation frameworks for multi-agent
+decision-making. At the University of Geneva, I build NLP pipelines that
+extract structured information from treaties, diplomatic communications, and
+policy documents, and I model decision-making dynamics in multilateral
+negotiations. Bringing these together, in \emph{VoteSim}\venue{EMNLP'26} we
+simulate democratic deliberation among LLM agents and show how the choice of
+electoral system shapes whether pluralistic preferences are represented.
+
+% ===============================================================
+\section{Research Agenda}
+% ===============================================================
+
+Collective decisions are moving from ballots to language. Residents submit
+free-text proposals, consultations collect thousands of comments, and AI
+systems summarize, mediate, and increasingly vote on people's behalf. Recent
+work has made a promising start. \emph{Generative social choice}
+(Fish et al., EC'24) gives proportional-representation guarantees for slates
+of LLM-generated statements, and the \emph{Habermas Machine} (Tessler et al.,
+\emph{Science} 2024) showed that LLM-mediated deliberation can find common
+ground at scale. Three things are still missing: ways to \emph{measure and
+audit} representation in text, an understanding of the \emph{dynamics} that
+arise when AI agents take part repeatedly, and \emph{validation on real data}
+rather than synthetic opinions. These are exactly the gaps that my work
+closed for ballots. My geometry, my structure-discovery methods, and my
+datasets apply directly to all three. My agenda has three connected thrusts;
+each poses concrete open problems and has a natural first PhD project.
+
+\thrust{Thrust A: Representation guarantees for collective decisions in language.}
+\begin{itemize}
+  \problem{Auditing representation in text.} Given individual opinions
+  written in natural language and an aggregate text (a summary or a consensus
+  statement), how should we measure how proportionally the aggregate
+  represents the population? Which measures satisfy natural axioms, and which
+  can be estimated with few LLM queries and provable error bounds? Existing
+  methods \emph{generate} representative text; we lack principled ways to
+  \emph{evaluate} it. My structure-discovery methods, which find clusters and
+  outliers among voters, are the natural starting point for finding the groups
+  that an aggregate text leaves out.
+  \problem{Polarization dynamics in AI societies.} Under which electoral
+  systems, discussion structures, and mixes of model families does repeated
+  deliberation among LLM agents converge, fragment, or polarize? I conjecture
+  that majoritarian systems accelerate polarization and that diversity of
+  model families slows it. My polarization indices provide the measures, and
+  records of real multilateral negotiations provide a human baseline.
+  \problem{Faithful AI proxies, tested on real ballots.} Pabulib contains real
+  approval ballots over projects with textual descriptions, which is rare
+  ground truth for AI proxies. When an LLM votes on a person's behalf, how
+  much does the \emph{outcome} change under rules such as the Method of Equal
+  Shares, and which rules are robust to proxy errors? This is the first PhD
+  project of the thrust.
+\end{itemize}
+\emph{Five-year goal:} a theory of representation for text-based collective
+decisions, with audit tools that practitioners can apply to AI-generated
+summaries and consensus statements.
+
+\thrust{Thrust B: Participatory democracy as a living laboratory.}
+\begin{itemize}
+  \problem{Richer democratic data.} I will extend Pabulib with full ballots,
+  project texts, residents' comments, and outcomes over several years. This
+  will turn it into a longitudinal benchmark, including for Thrust~A.
+  \problem{Does the rule change the process?} Theory predicts that
+  proportional rules change which projects are proposed and at what
+  cost\venue{NeurIPS'25}. Field studies with partner cities can test whether
+  they also change who participates and who proposes. This is the first PhD
+  project of the thrust.
+  \problem{Tools that cities and residents can trust.} Open tools to choose,
+  simulate, and audit PB rules, and to \emph{explain} their outcomes to
+  residents, so that cities can adopt evidence-based designs without in-house
+  experts and residents can see why a project was or was not funded.
+\end{itemize}
+Switzerland is an ideal setting for this work, with its tradition of direct
+democracy, Lausanne's participatory budget, and Swiss cities such as Aarau
+and Winterthur that have already used the Method of Equal
+Shares. % TODO: verify Aarau/Winterthur
+I will partner with municipalities, following the model of Science for
+Democracy.
+
+\thrust{Thrust C: A geometry of collective decision problems, from ballots to text.}
+\begin{itemize}
+  \problem{Computing invariant distances at scale.} Which collective decision
+  domains admit polynomial-time relaxations of isomorphism-invariant distances
+  that, like the positionwise distance, preserve the geometry? Can sketching
+  and sublinear techniques make them scale to elections with millions of
+  voters? This is the first PhD project of the thrust.
+  \problem{Benchmarks with provable coverage.} How many instances, and which
+  ones, must a benchmark contain to cover the space of instances up to a given
+  precision under a given distance? Which samplers achieve this? The answers
+  will become defaults in \texttt{prefsampling} and \texttt{mapel}.
+  \problem{Maps of deliberation.} Extending the geometry from ballots to sets
+  of textual opinions will make it possible to compare deliberations, human or
+  AI, the way we now compare elections. This will give Thrust~A its evaluation
+  backbone.
+\end{itemize}
+
+\textbf{Students, funding, and service.} The three thrusts offer PhD projects
+of different flavors: theoretical (C), empirical and NLP-oriented (A), and
+applied and data-centric (B). I have already co-supervised more than ten
+students, led a grant as principal investigator (NCN Preludium), and worked
+within an ERC-funded project. I will apply to the Swiss National Science
+Foundation early on and for an ERC Starting Grant built around Thrust~A. I
+serve on the editorial board of JAIR (since 2026) and on the program
+committees of NeurIPS, AAAI, AAMAS, and IJCAI.
+
+% ===============================================================
+\section{Why EPFL}
+% ===============================================================
+
+My agenda sits between algorithms, AI, and the social sciences, and EPFL is
+one of the few places where all three are strong under one roof. I see
+concrete joint projects:
+\begin{itemize}
+  \item with \emph{Michael Kapralov} on sketching and sublinear algorithms for
+  isomorphism-invariant distances between very large elections (Thrust~C);
+  \item with \emph{Robert West} on how faithfully LLMs represent the opinions
+  of real populations, and on polarization dynamics in AI societies,
+  combining his work in computational social science with my preference
+  measures (Thrust~A);
+  \item with \emph{Antoine Bosselut} on measuring representation in
+  LLM-generated summaries and consensus statements (Thrust~A);
+  \item with \emph{Bryan Ford} on secure, auditable platforms for
+  participatory processes and digital deliberation (Thrust~B).
+\end{itemize}
+Beyond EPFL, the Lake Geneva region offers what this agenda needs most: a
+living tradition of direct democracy, municipalities that experiment with
+participation, and, through my position in Geneva, ties to the international
+organizations whose negotiations are among the richest records of real
+deliberation.
+
+\end{document}
