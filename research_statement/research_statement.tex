@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathpazo}
 \renewcommand{\ttdefault}{lmtt}  % outline typewriter font (avoids bitmap ectt)
-\usepackage[margin=2.0cm,top=1.8cm,bottom=1.9cm]{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -88,10 +88,8 @@ the first in the field to take the whole space of elections as its object of
 study, was defended with distinction at AGH University in 2024 and received
 the Polish Prime Minister's Award (2025); my doctoral work also earned a START
 fellowship of the Foundation for Polish Science (2023). Since then, a CNRS
-postdoc at LAMSADE (Paris Dauphine-PSL) and my current position at the
-University of Geneva, where I build NLP pipelines for diplomatic and policy
-texts, have given me the tools to take this program into the domain of
-language.
+postdoc at LAMSADE (Paris Dauphine-PSL) and my position at the University of
+Geneva have taken this program into the domain of language.
 
 % ===============================================================
 \section{Past and Current Research}
@@ -139,10 +137,7 @@ to tournaments, fair division\venue{AAAI'26}, and voting rules themselves. To
 make the methodology standard practice, I co-authored a community
 guide\venue{IJCAI'24}, gave tutorials at AAAI, AAMAS, and IJCAI, and built two open-source
 Python libraries: \texttt{mapel}, for drawing maps, and
-\texttt{prefsampling}, for sampling synthetic preferences. The result is a
-shift in the field's standards: experiments on uniformly random votes alone
-are no longer accepted, and authors are expected to justify the diversity of
-their data.
+\texttt{prefsampling}, for sampling synthetic preferences.
 
 \subsection{Discovering structure in preferences}
 Beyond comparing elections, I develop measures of what is \emph{inside} them.
@@ -160,9 +155,8 @@ the usual direction of the field: instead of designing a rule, we
 antagonistic candidates, and diverse groups of candidates\venue{AAMAS'24;
 IJCAI'24}, and, in ongoing work, hidden structure among voters, such as
 clusters of similar voters and outliers. This brings social choice close to
-the central task of machine learning, finding structure in data, and it
-provides the measures I will use to quantify polarization among AI agents
-(Thrust~A). Closer to political science, I designed voting rules that let
+the central task of machine learning: finding structure in data. Closer to
+political science, I designed voting rules that let
 allied candidates avoid the spoiler effect\venue{AAMAS'24} and a
 nonparametric test for gerrymandering\venue{IJCAI'24}.
 
@@ -171,13 +165,11 @@ In participatory budgeting (PB), residents vote on how to spend part of a
 city's budget. In 2020 I initiated \emph{Pabulib}, with D.~Stolicki and
 N.~Talmon, and I have led its development since\venue{IJCAI'23}. It now holds
 2{,}053 elections from 30 cities in 8 countries, with 8.6 million votes on
-over 38{,}000 projects. Most data came from Polish cities through
-freedom-of-information requests; researchers abroad now persuade their own
-cities to contribute, which is how Amsterdam and Budapest entered it. Pabulib
-is the standard dataset for PB research and, increasingly, for approval
-voting in general: more than 70 papers have used it, including work at
-Columbia, Toronto, and Amsterdam, and field studies of participatory
-processes in Switzerland and Taiwan. Real data opened questions
+over 38{,}000 projects; researchers abroad now persuade their own cities to
+contribute, which is how Amsterdam and Budapest entered it. Pabulib is the
+standard dataset for PB research and, increasingly, for approval voting in
+general: more than 70 papers have used it, including field studies of
+participatory processes in Switzerland and Taiwan. Real data opened questions
 that theory alone could not answer: learning realistic models of approval
 voting\venue{AAMAS'25}, measuring how well individual projects performed under
 a given rule\venue{IJCAI'24}, and a game-theoretic analysis of how proposers
@@ -218,8 +210,7 @@ ground at scale. Three things are still missing: ways to \emph{measure and
 audit} representation in text, an understanding of the \emph{dynamics} that
 arise when AI agents take part repeatedly, and \emph{validation on real data}
 rather than synthetic opinions. These are exactly the gaps that my work
-closed for ballots. My geometry, my structure-discovery methods, and my
-datasets apply directly to all three. My agenda has three connected thrusts;
+closed for ballots. My agenda has three connected thrusts;
 each poses concrete open problems and has a natural first PhD project.
 
 \thrust{Thrust A: Representation guarantees for collective decisions in language.}
@@ -269,14 +260,13 @@ Switzerland is an ideal setting for this work, with its tradition of direct
 democracy, Lausanne's participatory budget, and Swiss cities such as Aarau
 and Winterthur that have already used the Method of Equal
 Shares. % TODO: verify Aarau/Winterthur
-I will partner with municipalities, following the model of Science for
-Democracy.
+I will partner with them as I do through Science for Democracy.
 
 \thrust{Thrust C: A geometry of collective decision problems, from ballots to text.}
 \begin{itemize}
-  \problem{Computing invariant distances at scale.} Which collective decision
-  domains admit polynomial-time relaxations of isomorphism-invariant distances
-  that, like the positionwise distance, preserve the geometry? Can sketching
+  \problem{Computing invariant distances at scale.} Which domains admit
+  polynomial-time relaxations of isomorphism-invariant distances that, like
+  the positionwise distance, preserve the geometry? Can sketching
   and sublinear techniques make them scale to elections with millions of
   voters? This is the first PhD project of the thrust.
   \problem{Benchmarks with provable coverage.} How many instances, and which
@@ -317,10 +307,9 @@ concrete joint projects:
   \item with \emph{Bryan Ford} on secure, auditable platforms for
   participatory processes and digital deliberation (Thrust~B).
 \end{itemize}
-Beyond EPFL, the Lake Geneva region offers what this agenda needs most: a
-living tradition of direct democracy, municipalities that experiment with
-participation, and, through my position in Geneva, ties to the international
-organizations whose negotiations are among the richest records of real
+Beyond EPFL, the Lake Geneva region offers what this agenda needs most:
+direct democracy, municipalities that experiment with participation, and
+international organizations whose negotiations are rich records of real
 deliberation.
 
 \end{document}

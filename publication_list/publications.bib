@@ -1,0 +1,432 @@
+% RULES FOR CREATING BIB KEYS:
+%
+% For a conference paper by Szufa, Faliszewski and Talmon, we use:
+%
+%    szu-fal-tal:c:keyword-or-two
+%
+% Notes:
+%  - we maintain the order of the authors in the bibtex key
+%  - c means conference (j - journal, b - book, t - technical report, if needed)
+%  - keywords are free-form, but should somehow point to the paper's content
+%    (e.g., bribery, pb, map) and can be combined (e.g., pb-bribery-robustness)
+%
+% Fields used by make_publist.py in addition to the standard ones:
+%   note = {...}     printed after the venue (e.g. "To appear", awards)
+
+@string{aaai19 = {Proceedings of AAAI-2019}}
+@string{aaai22 = {Proceedings of AAAI-2022}}
+@string{aaai25 = {Proceedings of AAAI-2025}}
+@string{aaai26 = {Proceedings of AAAI-2026}}
+@string{aamas18 = {Proceedings of AAMAS-2018}}
+@string{aamas19 = {Proceedings of AAMAS-2019}}
+@string{aamas20 = {Proceedings of AAMAS-2020}}
+@string{aamas23 = {Proceedings of AAMAS-2023}}
+@string{aamas24 = {Proceedings of AAMAS-2024}}
+@string{aamas25 = {Proceedings of AAMAS-2025}}
+@string{aamas26 = {Proceedings of AAMAS-2026}}
+@string{ijcai21 = {Proceedings of IJCAI-2021}}
+@string{ijcai22 = {Proceedings of IJCAI-2022}}
+@string{ijcai23 = {Proceedings of IJCAI-2023}}
+@string{ijcai24 = {Proceedings of IJCAI-2024}}
+@string{ijcai26 = {Proceedings of IJCAI-2026}}
+@string{ecai25 = {Proceedings of ECAI-2025}}
+@string{neurips22 = {Proceedings of NeurIPS-2022}}
+@string{neurips25 = {Proceedings of NeurIPS-2025}}
+@string{emnlp26 = {Proceedings of EMNLP-2026}}
+
+% ---------------------------------------------------------------
+% To appear (not in the academic CV yet) -- TODO: confirm status
+% ---------------------------------------------------------------
+
+@inproceedings{fau-szu-hoy-zha-bou-lei-jin:c:votesim,
+  author    = {R. Faulkner and S. Szufa and D. Hoyer and T. J. Zhang and R. Bouffanais and J. Z. Leibo and Z. Jin},
+  title     = {Simulating Democratic Deliberation: Representing Pluralistic Preferences through Electoral Systems in Multi-Agent {LLMs}},
+  booktitle = emnlp26,
+  year      = {2026},
+  note      = {To appear}
+}
+
+% ---------------------------------------------------------------
+% Conference papers
+% ---------------------------------------------------------------
+
+@inproceedings{fal-mer-sor-szu-was:c:approval-polarization,
+  author    = {P. Faliszewski and J. Mertlov{\'a} and K. Sornat and S. Szufa and T. Wąs},
+  title     = {Agreement, Diversity, and Polarization Indices for Approval Elections},
+  booktitle = ijcai26,
+  pages     = {3393--3401},
+  year      = {2026},
+  doi       = {10.24963/IJCAI.2026/377}
+}
+
+@inproceedings{faliszewski2026outer,
+  title={Outer Diversity of Structured Domains},
+  author={P. Faliszewski and
+          K. Sornat and 
+          S. Szufa and 
+          T. Wąs},
+  booktitle=aamas26,
+  pages={2106--2114},
+  year={2026},
+  doi={10.65109/WNGL6996}
+}
+
+@inproceedings{bohmputting,
+  title={Putting Fair Division on the Map},
+  author={P. Böhm and
+          R. Bredereck and
+          P. Gölz and
+          A. Kaczmarczyk and
+          S. Szufa},
+  booktitle=aaai26,
+  pages        = {16726--16734},
+  year={2026}
+}
+
+@inproceedings{faliszewski2025diversity,
+  title={Diversity of Structured Domains via k-Kemeny Scores},
+  author={P. Faliszewski and
+          K. Sornat and 
+          S. Szufa and 
+          T. Wąs},
+  booktitle=aaai26,
+  pages        = {16880--16888},
+  year={2026}
+}
+
+@inproceedings{PB_COST_NEURIPS_25,
+  author       = {P. Faliszewski and
+                  Ł. Janeczko and
+                  A. Kaczmarczyk and
+                  G. Lisowski and
+                  P. Skowron and 
+                  S. Szufa and
+                  M. Szwagierczak},
+  title        = {Strategic Cost Selection in Participatory Budgeting},
+  booktitle    = neurips25,
+  year         = {2025}
+}
+
+@inproceedings{nikolow2026maps,
+  title={Maps of Tournaments: Distances, Experiments, and Data},
+  author={F. Nikolow and
+          P. Faliszewski and 
+          S. Szufa},
+  pages={675--682},
+  year={2025},
+  booktitle = ecai25
+}
+
+@inproceedings{boratyn2025spoiler,
+  title={Spoiler Susceptibility in Party Elections},
+  author={D. Boratyn and
+          W. S{\l}omczy{\'n}ski and 
+          D. Stolicki and 
+          S. Szufa},
+  pages={3775--3782},
+  year={2025},
+  booktitle = ecai25
+}
+
+@inproceedings{DBLP:conf/ifaamas/FaliszewskiJ0KP25,
+  author       = {P. Faliszewski and
+                  Ł. Janeczko and
+                  A. Kaczmarczyk and
+                  M. Kurdziel and
+                  G. Pierczyński and
+                  S. Szufa},
+  title        = {Learning Real-Life Approval Elections},
+  pages        = {704--712},
+  year         = {2025},
+  booktitle= aamas25,
+}
+
+@inproceedings{DBLP:conf/aaai/FaliszewskiMNSW25,
+  author       = {P. Faliszewski and
+                  J. Mertlov{\'{a}} and
+                  P. Nunn and
+                  S. Szufa and
+                  T. Wąs},
+  title        = {Distances Between Top-Truncated Elections of Different Sizes},
+  pages        = {13823--13830},
+  year         = {2025},
+  booktitle= aaai25,
+}
+
+@inproceedings{del-jan-kac-szu:c:cvr,
+  author       = {T.~Delemazure and Ł.~Janeczko and A.~Kaczmarczyk and S. Szufa},
+  title        = {Selecting the Most Conflicting Pair of Candidates},
+  booktitle    = ijcai24,
+  pages        = {2766--2773},
+  year         = {2024}
+}
+
+@inproceedings{boe-fal-jan-pet-pie-sch-sko-szu:c:pb-performance,
+  author       = {N.~Boehmer and 
+                    P.~Faliszewski and
+                    Ł.~Janeczko and
+                    D.~Peters and
+                    G.~Pierczyński and
+                    Š.~Schierreich and
+                    P.~Skowron and
+                    S. Szufa},
+  title        = {Evaluation of Project Performance in Participatory Budgeting},
+  booktitle    = ijcai24,
+  pages        = {2678--2686},
+  year         = {2024}
+}
+
+@inproceedings{slo-sto-szu:c:nonparametric-gerrymandering,
+  author       = {W.~Słomczyński and D.~Stolicki  and S. Szufa},
+  title        = {Nonparametric Detection of Gerrymandering in Multiparty Plurality Elections},
+  booktitle    = ijcai24,
+  pages        = {2967--2975},
+  year         = {2024}
+}
+
+@inproceedings{survey:guide,
+  author       = {N.~Boehmer and 
+                    P.~Faliszewski and
+                    Ł.~Janeczko and
+                    A.~Kaczmarczyk and
+                    G.~Lisowski and
+                    G.~Pierczyński and
+                    S.~Rey and
+                    D.~Stolicki and
+                    S. Szufa and
+                    T.~Wąs},
+  title        = {Guide to Numerical Experiments on Elections in Computational Social Choice},
+  booktitle    = ijcai24,
+  pages        = {7962--7970},
+  year         = {2024},
+  note         = {Survey track}
+}
+
+@inproceedings{pie-szu:c:primaries,
+  author       = {G.~Pierczyński and 
+                  S. Szufa},
+  title        = {Single-Winner Voting with Alliances: Avoiding the Spoiler Effect},
+  booktitle= aamas24,
+  pages={1567--1575},
+  year         = {2024}
+}
+
+@inproceedings{jan-lan-lis-szu:c:ihs,
+  author       = {Ł.~Janeczko and J.~Lang and G.~Lisowski and S. Szufa},
+  title        = {Discovering Consistent Subelections},
+  booktitle= aamas24,
+  pages={935--943},
+  year={2024}
+}
+
+@inproceedings{fal-lac-sor-szu:c:comparison-multiwinner-approval,
+  author       = {P.~Faliszewski and
+                  M.~Lackner and
+                  K.~Sornat and
+                  S. Szufa},
+  title        = {An Experimental Comparison of Multiwinner Voting Rules on Approval
+                  Elections},
+  booktitle    = ijcai23,
+  pages        = {2675--2683},
+  year         = {2023},
+}
+
+@inproceedings{fal-fli-pet-pie-sko-sto-szu-tal:c:participatory-budgeting-tools,
+  author       = {P.~Faliszewski and
+                  J.~Flis and
+                  D.~Peters and
+                  G.~Pierczyński and
+                  P.~Skowron and
+                  D.~Stolicki and
+                  S. Szufa and
+                  N.~Talmon},
+  title        = {Participatory Budgeting: Data, Tools and Analysis},
+  booktitle    = ijcai23,
+  pages        = {2667--2674},
+  year         = {2023},
+}
+
+@inproceedings{fal-kac-sor-szu-was:c:div-agr-pol-map,
+  author       = {P.~Faliszewski and
+                  A.~Kaczmarczyk and
+                  K.~Sornat and
+                  S. Szufa and
+                  T.~Wąs},
+  title        = {Diversity, Agreement, and Polarization in Elections},
+  booktitle    = ijcai23,
+  pages        = {2684--2692},
+  year         = {2023}
+}
+
+@inproceedings{boe-hee-szu:c:map-stable-roommates,
+  author       = {N.~Boehmer and
+                  K.~Heeger and
+                  S. Szufa},
+  title        = {A Map of Diverse Synthetic Stable Roommates Instances},
+  booktitle    = aamas23,
+  pages        = {1003--1011},
+  year         = {2023},
+  note         = {Pragnesh Jay Modi Best Student Paper Award}
+}
+
+@inproceedings{DBLP:conf/nips/BoehmerBEFS22,
+  author       = {N.~Boehmer and
+                  R.~Bredereck and
+                  E.~Elkind and
+                  P.~Faliszewski and
+                  S. Szufa},
+  title        = {Expected Frequency Matrices of Elections: Computation, Geometry, and
+                  Preference Learning},
+  booktitle    = neurips22,
+  year         = {2022}
+}
+
+@inproceedings{szu-fal-jan-lac-sli-sor-tal:c:how-to-sample-approval-elections,
+  author       = {S. Szufa and
+                  P.~Faliszewski and
+                  Ł.~Janeczko and
+                  M.~Lackner and
+                  A.~Slinko and
+                  K.~Sornat and
+                  N.~Talmon},
+  title        = {How to Sample Approval Elections?},
+  booktitle    = ijcai22,
+  pages        = {496--502},
+  year         = {2022}
+}
+
+@inproceedings{boe-fal-nie-szu-was:c:understanding-distance-measures-among-elections,
+  author       = {N.~Boehmer and
+                  P.~Faliszewski and
+                  R.~Niedermeier and
+                  S. Szufa and
+                  T.~Wąs},
+  title        = {Understanding Distance Measures Among Elections},
+  booktitle    = ijcai22,
+  pages        = {102--108},
+  year         = {2022}
+}
+
+@inproceedings{fal-sor-szu:c:subelection-complexity,
+  author={P.~Faliszewski and
+          K.~Sornat and 
+          S. Szufa},
+  title={The Complexity of Subelection Isomorphism Problems},
+  booktitle = aaai22,
+  pages={4991--4998},
+  year={2022}
+}
+
+@inproceedings{boe-bre-fal-nie-szu:c:compass,
+  author = {N.~Boehmer and 
+            R.~Bredereck and 
+            P.~Faliszewski and 
+            R.~Niedermeier and 
+            S. Szufa},
+  title     = {Putting a Compass on the Map of Elections},
+  booktitle = ijcai21,
+  pages     = {59--65},
+  year      = {2021},
+}
+
+@inproceedings{szu-fal-sko-sli-tal:c:map-of-elections,
+  author       = {S. Szufa and
+                  P.~Faliszewski and
+                  P.~Skowron and
+                  A.~Slinko and
+                  N.~Talmon},
+  title        = {Drawing a Map of Elections in the Space of Statistical Cultures},
+  booktitle    = aamas20,
+  pages        = {1341--1349},
+  year         = {2020}
+}
+
+@inproceedings{fal-sko-sli-szu:c:similar-two-elections,
+  author       = {P.~Faliszewski and
+                  P.~Skowron and
+                  A.~Slinko and
+                  S. Szufa and
+                  N.~Talmon},
+  title        = {How Similar Are Two Elections?},
+  booktitle    = aaai19,
+  pages        = {1909--1916},
+  year         = {2019},
+}
+
+@inproceedings{fal-szu-tal:c:closer-to-utopia-better,
+  author    = {P.~Faliszewski and
+               S. Szufa and
+               N.~Talmon},
+  title     = {Optimization-Based Voting Rule Design: The Closer to Utopia the Better},
+  booktitle = aamas18,
+  year      = {2018},
+  pages     = {32--40}
+}
+
+% ---------------------------------------------------------------
+% Journal articles
+% ---------------------------------------------------------------
+
+@article{skowron2025participatory,
+  title={Participatory Budgeting with Cumulative Votes},
+  author={P.~Skowron and 
+        A.~Slinko and
+        S. Szufa and 
+        N.~Talmon},
+  journal={Theory and Decision},
+  year={2025}
+}
+
+@article{DBLP:journals/ai/SzufaBBFNSST25,
+  author       = {S. Szufa and
+                  N.~Boehmer and
+                  R.~Bredereck and
+                  P.~Faliszewski and
+                  R.~Niedermeier and
+                  P.~Skowron and
+                  A.~Slinko and
+                  N.~Talmon},
+  title        = {Drawing a Map of Elections},
+  journal      = {Artificial Intelligence},
+  volume       = {343},
+  year         = {2025},
+  note         = {Journal version of AAMAS-2020 and IJCAI-2021 papers}
+}
+
+@article{DBLP:journals/jcss/FaliszewskiSSSST25,
+  author       = {P.~Faliszewski and
+                  P.~Skowron and
+                  A.~Slinko and
+                  K.~Sornat and
+                  S. Szufa and
+                  N.~Talmon},
+  title        = {How Similar Are Two Elections?},
+  journal      = {Journal of Computer and System Sciences},
+  volume       = {150},
+  year         = {2025},
+  note         = {Journal version of the AAAI-2019 paper}
+}
+
+@article{faliszewski2024complexity,
+  title={The Complexity of Subelection Isomorphism Problems},
+  author={P. Faliszewski and
+          K. Sornat and 
+          S. Szufa},
+  journal={Journal of Artificial Intelligence Research},
+  volume={80},
+  pages={1343--1371},
+  year={2024},
+  note         = {Journal version of the AAAI-2022 paper}
+}
+
+@article{boehmer2024map,
+  title={A Map of Diverse Synthetic Stable Matching Instances},
+  author       = {N. Boehmer and
+                  K. Heeger and
+                  S. Szufa},
+  journal={Journal of Artificial Intelligence Research},
+  volume={79},
+  pages={1113--1166},
+  year={2024},
+  note         = {Journal version of the AAMAS-2023 paper}
+}

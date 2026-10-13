@@ -1,0 +1,82 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------------------------------------------------------------
+%  Publication List -- Stanisław Szufa
+%  EPFL IC Faculty Search 2026
+%  The entries come from publications.bib via make_publist.py.
+% ---------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{160,20,30}   % same accent as the other statements
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist{nosep,leftmargin=1.2em}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Publication List}\\[3pt]
+  {\large Stanisław Szufa}\\[1pt]
+  {\small University of Geneva \;$\cdot$\; \href{https://szufa.pl}{szufa.pl}
+   \;$\cdot$\; \href{https://scholar.google.com/citations?user=TODO}{Google Scholar}} % TODO: fill in Scholar URL
+\end{center}
+\vspace{2pt}
+
+\textbf{Summary.} 5 journal articles and 28 full conference papers (of which 1
+to appear), published mainly at the major AI conferences (AAAI, IJCAI,
+NeurIPS, AAMAS, EMNLP) and in
+\emph{Artificial Intelligence}, \emph{JAIR}, and \emph{JCSS}. % TODO: check counts after editing the bib
+Citation metrics as of October 2026: TODO citations, $h$-index TODO (Google
+Scholar). % TODO: fill in
+
+\textbf{Author ordering.} As is customary in computational social choice,
+authors are usually listed alphabetically, so position in the author list
+does not reflect contribution. Papers that deviate from alphabetical order
+list the lead author first; I am the lead author of [C3], [C7], and [J4].
+% NOTE: re-check these numbers whenever the bib changes
+
+\textbf{Conventions.} My name is in bold. Journal versions of conference
+papers are listed separately and marked as such. Extended abstracts are not
+listed.
+
+\input{entries}
+
+% ===============================================================
+\section{Thesis}
+% ===============================================================
+\begin{itemize}[label={},leftmargin=3.2em,itemsep=2.5pt]
+  \item[\textbf{[T1]}] \textbf{S. Szufa}. \emph{Map of Elections}. PhD thesis,
+  AGH University of Kraków, 2024. Defended with distinction; Polish Prime
+  Minister's Award for an outstanding doctoral dissertation (2025).
+  % TODO: confirm the awarding institution (AGH vs Jagiellonian) -- see the CV discrepancy
+\end{itemize}
+
+% ===============================================================
+\section{Software and Datasets}
+% ===============================================================
+\begin{itemize}[label={},leftmargin=3.2em,itemsep=2.5pt]
+  \item[\textbf{[S1]}] \textbf{Pabulib} (\href{https://pabulib.org}{pabulib.org}).
+  Open library of participatory budgeting elections; 2{,}053 instances from 30
+  cities in 8 countries, used in more than 70 publications. Co-founded in
+  2020; lead maintainer.
+  \item[\textbf{[S2]}] \textbf{prefsampling}
+  (\href{https://pypi.org/project/prefsampling/}{PyPI}). Python library for
+  sampling synthetic preference data under a wide range of statistical
+  cultures; a standard benchmarking tool in computational social choice.
+  \item[\textbf{[S3]}] \textbf{mapel}
+  (\href{https://pypi.org/project/mapel/}{PyPI}). Python library for
+  computing distances between elections and drawing maps of elections.
+\end{itemize}
+
+\end{document}
