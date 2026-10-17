@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathpazo}
 \renewcommand{\ttdefault}{lmtt}  % outline typewriter font (avoids bitmap ectt)
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[hmargin=2.5cm,vmargin=2.2cm]{geometry}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -21,7 +21,7 @@
 \titleformat{\subsection}[runin]{\normalsize\bfseries}{}{0pt}{}[.]
 \titlespacing*{\subsection}{0pt}{5pt}{0.6em}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{4pt}
+\setlength{\parskip}{3pt}
 \setlist{nosep,leftmargin=1.2em}
 
 \newcommand{\direction}[1]{\textbf{\color{accent}#1}}
@@ -47,8 +47,8 @@ Many collective decisions are now made with the help of algorithms: a voting
 rule decides which projects a city funds from its participatory budget,
 electoral systems turn votes into parliaments, and large language models are
 being tested for summarizing public consultations and drafting statements
-that a whole group can agree on. In each case we can ask: \emph{does the
-outcome represent the people it affects?} Answering this with evidence
+that a whole group can agree on. In each case, the question is whether the
+outcome represents the people it affects. Answering it with evidence
 requires a way to compare decision problems (are synthetic test cases similar
 to real ones?) and real data to test against. Computational social choice,
 the field that studies voting rules with the tools of computer science, long
@@ -56,36 +56,31 @@ relied on proofs and on experiments with synthetic votes, often drawn
 uniformly at random, with no general method to check how close these were to
 real elections.
 
-My work provides both, and takes them into practice:
+My work provides both. It falls into three lines, which also structure this
+statement:
 \begin{itemize}
-  \item \emph{Maps of elections.} I proposed the \emph{positionwise distance},
-  which compares two elections by how often each candidate is ranked in each
-  position, after optimally matching the candidates of the two elections, so
-  it does not depend on candidate names or voter order. Drawing a collection
-  of elections in the plane according to these distances gives a \emph{map of
-  elections}, on which similar elections lie close together and one can see
+  \item \emph{A geometry of collective decisions.} I introduced \emph{maps of
+  elections}, which place elections in a common space, using a distance that I
+  proposed, so that similar elections lie close together and one can see
   which models of synthetic votes resemble real data\pub{C3, J4}.
-  \item \emph{Pabulib.} I initiated Pabulib, the largest open repository of
-  participatory budgeting data. It holds over 2{,}000 elections from 8
-  countries and has been cited in more than 70 papers\pub{C11}.
-  \item \emph{The Method of Equal Shares in practice.} Under this rule, each
-  resident receives an equal share of the budget, and a project is funded only
-  if its supporters can jointly pay for it from their shares, so that each
-  group of residents gets a fair part of the budget. I am
-  a member of the team that convinced Polish cities to adopt it, and in 2025 I
-  co-founded \emph{Science for Democracy}, a nonprofit that works to bring the
-  Method of Equal Shares to Polish municipalities.
+  \item \emph{Real data and real deployments.} I initiated Pabulib, the
+  largest open repository of participatory budgeting data. It holds over
+  2{,}000 elections from 8 countries and has been cited in more than 100
+  papers. I am also a member of the team that convinced Polish cities to adopt
+  the Method of Equal Shares, a proportional rule for participatory budgets.
+  \item \emph{Toward language.} I now study collective decisions in which text
+  and language models play a role, including simulated deliberation among LLM
+  agents\pub{C28} and the voting record of the UN General Assembly.
 \end{itemize}
 As a PhD student, I was the principal investigator of a National Science
 Centre grant (NCN Preludium) on the \emph{election isomorphism problem}, from
 which maps of elections grew. My thesis, \emph{Map of Elections} (advisor:
 Piotr Faliszewski), received the Polish Prime Minister's Award (2025), and I
 received a START fellowship of the Foundation for Polish Science (2023) and the
-AAMAS 2023 Best Student Paper Award. As a CNRS postdoc at LAMSADE
-(Paris Dauphine-PSL) with J\'er\^ome Lang (2024--2026), I worked at the
-intersection of social choice and machine learning. At the University of
-Geneva, I study collective decisions in international politics and in
-simulations with LLM agents\pub{C28}.
+AAMAS 2023 Best Student Paper Award. I was then a CNRS postdoc at LAMSADE
+(Paris Dauphine-PSL) with J\'er\^ome Lang (2024--2026), working at the
+intersection of social choice and machine learning, and I am now a postdoc at
+the University of Geneva.
 
 \textbf{At EPFL, I will extend these tools to collective decisions in which
 opinions are expressed in text and aggregated by AI}, such as summaries of
@@ -98,25 +93,27 @@ groups the summary leaves out?
 \section{Past and Current Research}
 % ===============================================================
 
-\subsection{How similar are two elections? A geometry of collective decisions}
-What an experiment on voting rules shows depends on which elections it
-contains: are the synthetic ones similar to real ones, and do they cover the
-situations a rule will face in practice? Answering this requires a distance
-between elections that ignores what the candidates are called and in which
+\subsection{A geometry of collective decisions}
+How similar are two elections? A useful distance between elections must
+ignore what the candidates are called and in which
 order the voters are listed, since two elections can have the same structure
 with entirely different candidates (presidential candidates vs.\ types of
 sushi). We showed that the most natural such distances, and the related
 problem of finding one election inside another, are computationally
-hard\pub{C2, J3, C5, J2}. The positionwise distance is my answer: it can be
-computed efficiently, and it made it possible to draw the \emph{map of
-elections}\pub{C3}, to which we added landmark elections that make its regions
+hard\pub{C2, J3, C5, J2}. I proposed instead the \emph{positionwise distance},
+which compares two elections by how often each candidate is ranked in each
+position, after optimally matching the candidates of the two elections. It
+can be computed efficiently, and it made it possible to draw the \emph{map of
+elections}\pub{C3}: compute the distances between all pairs in a collection
+of elections and draw them in the plane, so that similar elections lie close
+together. We then added landmark elections that make its regions
 interpretable\pub{C4}; the complete framework appeared in \emph{Artificial
 Intelligence}\pub{J4}.
 
-The map turned a picture into a way of running experiments: it shows which
-parts of the space an experiment covers, which it misses, and where real
-elections lie relative to synthetic ones. % TODO: add one concrete example of what maps revealed, once confirmed
-The same geometry applies beyond ordinal elections: we built maps of approval
+Maps also help design experiments, because they show which parts of the
+space an experiment covers, which it misses, and where real elections lie
+relative to synthetic ones. % TODO: add one concrete example of what maps revealed, once confirmed
+The same approach works beyond ordinal elections. We built maps of approval
 elections\pub{C7}, of elections of different sizes\pub{C19}, of stable
 roommates and stable matching instances\pub{C9, J1} (Best Student Paper
 Award), of tournaments\pub{C22}, and of fair division instances\pub{C25},
@@ -125,44 +122,42 @@ this methodology, I co-authored a guide to numerical experiments on
 elections\pub{C15} and released two Python libraries: \texttt{mapel}, for
 drawing maps, and \texttt{prefsampling}, for sampling synthetic preferences.
 
-\subsection{Discovering structure in preferences}
-Beyond comparing elections, I develop measures of what is \emph{inside} them.
-Polarization is usually measured in elections where each voter names one
+I also study the structure within a single election. Polarization is usually measured in elections where each voter names one
 party. We introduced indices of agreement, diversity, and polarization for
 ranked ballots, built on \emph{$k$-Kemeny}, a generalization of Kemeny's rule
 that seeks $k$ representative rankings instead of one consensus, and extended
 them to approval ballots\pub{C10, C27}. We then used them to quantify how
-diverse structured preference domains are\pub{C24, C26}. A second line of
-work reverses the usual direction of the field: instead of designing a rule,
-we \emph{discover hidden structure in a preference dataset}, such as
-consistent subelections\pub{C13} or the most conflicting pair of
-candidates\pub{C18}, which brings social choice closer to machine
-learning. Closer to political science, we designed voting rules that let allied candidates avoid the
+diverse structured preference domains are\pub{C24, C26}. In another line of
+work, we do not design a rule but look for hidden structure in a preference
+dataset, such as consistent subelections\pub{C13} or the most conflicting
+pair of candidates\pub{C18}. Closer to political science, we designed voting rules that let allied candidates avoid the
 spoiler effect\pub{C14} and a nonparametric test for
 gerrymandering\pub{C16}.
 
 \subsection{Real data and real deployments}
 In participatory budgeting (PB), residents vote on how to spend part of a
 city's budget. I initiated Pabulib in 2020, and I built and
-maintain it\pub{C11}; it is now the largest open library of PB data, used by
-researchers and by municipal policy teams. Real data opened questions that
-theory alone could not answer: learning realistic models of approval
+maintain it\pub{C11}. It is now the largest open library of PB data. Our
+later work on PB includes learning realistic models of approval
 voting\pub{C20}, measuring how well individual projects performed under
 a given rule\pub{C17}, and a game-theoretic analysis of how proposers
 set project costs under the Method of Equal Shares\pub{C23}.
 
-This work reaches practice: the team I belong to convinced Polish cities,
-including Wieliczka and \'Swiecie, to adopt the Method of Equal Shares. This
-experience of bringing a voting rule from research into municipal practice
-shapes the tools I plan to build (Direction~B).
+Under the Method of Equal Shares, each resident
+receives an equal share of the budget, and a project is funded only if its
+supporters can jointly pay for it from their shares, so that each group of
+residents gets a fair part of the budget. The team I belong to convinced
+Polish cities, including Wieliczka and \'Swiecie, to adopt it, and in 2025 I
+co-founded \emph{Science for Democracy}, a nonprofit that works to bring the
+rule to Polish municipalities. Direction~B builds on this experience.
 
 \subsection{Toward language}
 At CNRS LAMSADE, I designed simulation frameworks that model multi-agent
 decision-making. At the
-University of Geneva (Global Studies Institute), I study collective decisions
+University of Geneva, I study collective decisions
 in international politics, combining voting records with NLP pipelines that
 extract structured information from large collections of diplomatic and policy
-texts. Two projects show this direction.
+texts.
 
 \emph{Simulating democratic deliberation with LLM agents.} With collaborators
 at the University of Toronto and Google DeepMind, we built \emph{VoteSim},
@@ -193,74 +188,20 @@ thesaurus.
 \section{Research Agenda}
 % ===============================================================
 
-Collective decisions increasingly involve text: free-text proposals,
-consultations with thousands of comments, and AI systems that summarize and
-mediate them. Social choice theory is not yet ready for this: its models treat the alternatives as abstract
-symbols, whereas a city project, a comment in an online consultation, or a UN
-resolution is a text with content. Recent work has made a promising start.
-\emph{Generative social choice} (Fish et al., 2024) proves proportionality
-guarantees for slates of LLM-generated statements, assuming that the LLM
-answers its queries accurately, and the \emph{Habermas Machine} (Tessler et
-al., 2024, in \emph{Science}) showed that, in groups of five participants,
-statements written by an LLM mediator were accepted more often than those
-written by human mediators. In a position paper written with colleagues after a Dagstuhl seminar, we
+Social choice models treat the alternatives as abstract symbols, whereas a
+city project, a comment in an online consultation, or a UN resolution is a
+text with content. Two recent results deal with text directly. Fish et
+al.\ (2024) prove proportionality guarantees for slates of LLM-generated
+statements, assuming that the LLM answers its queries accurately. Tessler et
+al.\ (2024, in \emph{Science}) found that, in groups of five participants,
+statements written by an LLM mediator were accepted more often than those of
+human mediators. In a position paper written with colleagues after a Dagstuhl seminar, we
 chart how text can enter every stage of collective decision making\pub{P1}.
-What is still missing are ways to \emph{measure and test} text-based
-outcomes, and \emph{real data} on which to test them; my work provided both
-for ballots. My agenda has three connected research directions.
+What is still missing are ways to \emph{evaluate} text-based outcomes and
+\emph{real data} to evaluate them on. My work provided both for ballots. My agenda has three connected research directions, each continuing one of
+the three lines of work above.
 
-\direction{Direction A: Representation when opinions are expressed in text and aggregated by AI.}
-\begin{itemize}
-  \problem{Auditing summaries and consensus statements.} Given opinions
-  written in natural language and an aggregate text, such as a summary or a
-  consensus statement, how should we measure how proportionally the aggregate
-  represents the population? Which measures satisfy natural
-  axioms, and which can be estimated with few LLM queries and provable error
-  bounds? Existing methods \emph{generate} representative text; we lack
-  principled ways to \emph{evaluate} it. Methods that find clusters and
-  outliers among voters are a natural starting point for finding the groups
-  that an aggregate text leaves out.
-  \problem{An LLM aggregator is a voting rule.} Fix a language model and a
-  prompt that turns a set of opinions into $k$ statements, and we obtain a
-  multi-winner voting rule whose input is text. Its properties can then be
-  tested like those of any other rule: does the outcome change when the same
-  opinions are presented in a different order (anonymity)? Can a participant
-  steer it by writing a manipulative opinion (manipulability)? Does it cover
-  each group in proportion to its size? Large-scale numerical experiments of
-  this kind are the methodology I helped establish for classical rules.
-  \problem{Polarization dynamics in AI societies.} When LLM agents deliberate
-  and vote repeatedly, under which electoral systems and discussion
-  structures do their positions converge, fragment, or polarize? Polarization
-  indices for elections\pub{C10, C27} provide the measures, and
-  VoteSim\pub{C28} provides the simulation environment.
-\end{itemize}
-\direction{Direction B: Participatory democracy as a living laboratory.}
-\begin{itemize}
-  \problem{Votes over texts.} I will extend Pabulib with project
-  descriptions, residents' comments, and outcomes over several years, turning
-  it into a longitudinal benchmark in which every ballot refers to a text.
-  The UN General Assembly record, with 5{,}693 resolutions adopted by
-  recorded vote together with their full texts, is a second testbed of this
-  kind. Both will serve Direction~A as real data.
-  \problem{Does proportionality carry over to content?} Proportional rules
-  for participatory budgeting have been observed to spread funds evenly
-  across project categories (Nelissen, 2023; Peters and Skowron, 2025). With project texts, we can
-  ask whether they also give each group of residents a proportional share of
-  the \emph{topics} it cares about, and design rules that guarantee it.
-  \problem{Does the rule change the process?} We have analyzed how proposers
-  choose project costs under the Method of Equal Shares\pub{C23}.
-  Field studies with partner cities can test how the rule affects real
-  proposers and participants: who proposes, what they propose, and who votes.
-  \problem{Tools that cities and residents can trust.} Open tools to choose,
-  simulate, and audit PB rules and to \emph{explain} their outcomes, so that
-  cities can adopt evidence-based designs and residents can see why a project
-  was or was not funded.
-\end{itemize}
-I will seek partnerships with Swiss municipalities for the field studies,
-building on my experience of working with Polish cities through Science for
-Democracy.
-
-\direction{Direction C: A geometry of collective decision problems, from ballots to text.}
+\direction{Direction A: A geometry of collective decision problems, from ballots to text.}
 \begin{itemize}
   \problem{Computing invariant distances at scale.} Which domains admit
   polynomial-time relaxations of isomorphism-invariant distances that, like
@@ -274,69 +215,113 @@ Democracy.
   problems can be similar in how people voted, in what the alternatives say,
   or both. Distances that combine the two will make it possible to compare
   deliberations, human or AI, the way we now compare elections, and to place
-  sessions of the UN General Assembly on a common map. This will give
-  Direction~A its evaluation backbone.
+  sessions of the UN General Assembly on a common map. Direction~C will use
+  these distances to compare text-based outcomes.
+\end{itemize}
+
+\direction{Direction B: Participatory democracy as a living laboratory.}
+\begin{itemize}
+  \problem{Votes over texts.} I will extend Pabulib with project
+  descriptions, residents' comments, and outcomes over several years, turning
+  it into a longitudinal benchmark in which every ballot refers to a text.
+  The UN General Assembly record, with 5{,}693 resolutions adopted by
+  recorded vote together with their full texts, is a second testbed of this
+  kind. Direction~C will use both as real data.
+  \problem{Does proportionality carry over to content?} Proportional rules
+  for participatory budgeting have been observed to spread funds evenly
+  across project categories (Nelissen, 2023; Peters and Skowron, 2025). With project texts, we can
+  ask whether they also give each group of residents a proportional share of
+  the \emph{topics} it cares about, and design rules that guarantee it.
+  \problem{Does the rule change the process?} We have analyzed how proposers
+  choose project costs under the Method of Equal Shares\pub{C23}.
+  Field studies with partner cities can test how the rule affects real
+  proposers and participants: who proposes, what they propose, and who votes.
+  \problem{Tools for cities and residents.} Open tools to choose,
+  simulate, and audit PB rules and to \emph{explain} their outcomes, so that
+  cities can adopt evidence-based designs and residents can see why a project
+  was or was not funded.
+\end{itemize}
+I will seek partnerships with Swiss municipalities for the field studies,
+building on my experience of working with Polish cities through Science for
+Democracy.
+
+\direction{Direction C: Representation when opinions are expressed in text and aggregated by AI.}
+\begin{itemize}
+  \problem{Auditing summaries and consensus statements.} Given opinions
+  written in natural language and an aggregate text, such as a summary or a
+  consensus statement, how should we measure how proportionally the aggregate
+  represents the population? Which measures satisfy natural
+  axioms, and which can be estimated with few LLM queries and provable error
+  bounds? Current methods \emph{generate} such texts, but we have few
+  principled ways to \emph{evaluate} them.
+  \problem{An LLM aggregator is a voting rule.} Fix a language model and a
+  prompt that turns a set of opinions into $k$ statements, and we obtain a
+  multi-winner voting rule whose input is text. Its properties can then be
+  tested like those of any other rule: does the outcome change when the same
+  opinions are presented in a different order (anonymity)? Can a participant
+  steer it by writing a manipulative opinion (manipulability)? Does it cover
+  each group in proportion to its size? I helped establish this kind of
+  large-scale numerical experiment for classical rules\pub{C15}.
+  \problem{Polarization among LLM agents.} When LLM agents deliberate
+  and vote repeatedly, under which electoral systems and discussion
+  structures do their positions converge, fragment, or polarize? Polarization
+  indices for elections\pub{C10, C27} provide the measures, and
+  VoteSim\pub{C28} provides the simulation environment.
 \end{itemize}
 
 \textbf{Goal for the first five years.} By the end of this period, my group
-will have produced three things: a public benchmark of votes over texts, built
-from participatory budgets and the UN General Assembly record (B); open tools,
-with known guarantees, for auditing whether AI-written summaries and consensus
-statements represent the people they summarize (A); and maps that let
-researchers compare deliberations the way they now compare elections (C).
-Together, they would give the field for text what my earlier work gave it for
-ballots: shared data, shared measures, and a shared way of running
-experiments.
+will have produced three things: maps that let researchers compare
+deliberations the way they now compare elections (A); a public benchmark of
+votes over texts, built from participatory budgets and the UN General Assembly
+record (B); and open tools, with known guarantees, for auditing whether
+AI-written summaries and consensus statements represent the people they
+summarize (C).
+These are the same kinds of contributions that my earlier work made for
+ballots: data, measures, and an experimental method.
 
-\textbf{Students, funding, and service.} The three directions offer PhD projects
-of different flavors: empirical and NLP-oriented (A), applied and
-data-centric (B), and theoretical (C). Natural first topics are testing LLM
-aggregators as voting rules (A), proportional coverage of topics in
-participatory budgeting (B), and scalable invariant distances (C). I have
+\textbf{Students, funding, and service.} Possible first PhD topics are scalable invariant distances (A, theoretical), proportional
+coverage of topics in participatory budgeting (B, applied and data-centric),
+and testing LLM aggregators as voting rules (C, empirical and NLP-oriented). I have
 already co-supervised more than ten students, led a grant as principal
 investigator (NCN Preludium), and worked within an ERC-funded project.
 I will apply to the Swiss National Science Foundation early on and for an ERC
-Starting Grant built around Direction~A. I serve on the editorial board of
+Starting Grant built around Direction~C. I serve on the editorial board of
 JAIR (since 2026) and review for NeurIPS, AAAI, and IJCAI.
 
 % ===============================================================
 \section{Why EPFL}
 % ===============================================================
 
-EPFL does not yet have a group in computational social choice, yet it is strong in the
-areas that this field now needs most: algorithms, natural language
-processing, and secure systems. I would bring the field to EPFL and connect
-it to these strengths. My agenda meets the work of three colleagues in
-particular:
+EPFL does not have a group in computational social choice, but it is strong
+in algorithms, natural language processing, and secure systems, which my
+agenda relies on. It connects in particular with the work of three
+colleagues:
 \begin{itemize}
   \item \emph{Michael Kapralov}'s sublinear algorithms and sketching, for
   making isomorphism-invariant distances computable on elections with
-  millions of voters (Direction~C);
-  \item \emph{Antoine Bosselut}'s NLP group and EPFL's work on open
-  multilingual language models such as Apertus, for auditing whether
-  AI-written summaries represent people who write in different languages, a
-  natural question in a country with four national languages (Direction~A);
+  millions of voters (Direction~A);
   \item \emph{Bryan Ford}'s work on proof of personhood and coercion-resistant
   e-voting, for digital participatory processes that count each resident once
-  and protect the secrecy of the vote (Direction~B).
+  and protect the secrecy of the vote (Direction~B);
+  \item \emph{Antoine Bosselut}'s NLP group and EPFL's work on open
+  multilingual language models such as Apertus, for auditing whether
+  AI-written summaries represent people who write in different languages,
+  which matters in a country with four national languages (Direction~C).
 \end{itemize}
-Switzerland is also where I want to do this work. Few countries vote as
-often: Swiss citizens decide federal, cantonal, and municipal questions by
+I also want to do this work in Switzerland because of its strong tradition of
+voting. Swiss citizens decide federal, cantonal, and municipal questions by
 popular vote several times a year, and in 2023 the city of Aarau used the
 Method of Equal Shares for its participatory budget. Geneva, where I already
-work, hosts the UN Human Rights Council, the natural next body for my work on
-voting in the United Nations.
+work, hosts the UN Human Rights Council, whose votes could extend my work on
+the General Assembly.
 
-% ===============================================================
-\section*{Other references}
-% ===============================================================
-{\small
+{\footnotesize\textbf{Other references.}
 Fish, G\"olz, Parkes, Procaccia, Rusak, Shapira, and W\"uthrich. Generative
-social choice. \emph{Proceedings of EC-2024}.\\
+social choice. \emph{Proceedings of EC-2024}.
 Nelissen. An empirical analysis of participatory budgeting in Amsterdam.
-arXiv:2310.18033, 2023.\\
+arXiv:2310.18033, 2023.
 Peters and Skowron. The Method of Equal Shares for participatory budgeting.
-\url{https://equalshares.net}, 2025.\\
+\url{https://equalshares.net}, 2025.
 Tessler, Bakker, Jarrett, et al. AI can help humans find common ground in
 democratic deliberation. \emph{Science} 386(6719), 2024.\par}
 
