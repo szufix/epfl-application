@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathpazo}
 \renewcommand{\ttdefault}{lmtt}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[hmargin=2.5cm,vmargin=2.2cm]{geometry}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -30,11 +30,11 @@
 \newlength{\datecol}\setlength{\datecol}{2.6cm}
 \newcommand{\entry}[4]{%
   \par\noindent
-  \begin{minipage}[t]{\datecol}{\color{muted}#1}\end{minipage}%
+  \begin{minipage}[t]{\datecol}\leavevmode{\color{muted}#1}\end{minipage}%
   \begin{minipage}[t]{\dimexpr\linewidth-\datecol\relax}
     \textbf{#2}\ifblank{#3}{}{, #3}%
     \ifblank{#4}{}{\\[1pt]{\small #4}}
-  \end{minipage}\par\vspace{4pt}}
+  \end{minipage}\par\vspace{3pt}}
 
 \begin{document}
 
@@ -47,7 +47,6 @@
   \href{mailto:stanislaw.szufa@unige.ch}{stanislaw.szufa@unige.ch} \;$\cdot$\;
   +41 76 472 16 09\\[1pt]
   \href{https://szufa.pl}{szufa.pl} \;$\cdot$\;
-  \href{https://scholar.google.com/citations?user=TODO}{Google Scholar} \;$\cdot$\; % TODO: Scholar URL
   \href{https://github.com/szufa}{github.com/szufa}}
 \end{center}
 
@@ -59,25 +58,26 @@ participatory budgeting; social choice with language models.
 \section{Academic Positions}
 % ===============================================================
 \entry{2026 -- now}{Postdoctoral Researcher}{University of Geneva}
-  {NLP pipelines for diplomatic and policy texts; computational models of
-  decision-making in multilateral negotiations; LLM-based simulation of
-  democratic deliberation.} % TODO: add institute / lab and host if you want them named
+  {Hosts: Roland Bouffanais and Didier Wernli. NLP pipelines for diplomatic
+  and policy texts; computational models of decision-making in multilateral
+  negotiations; LLM-based simulation of democratic deliberation.}
 \entry{2024 -- 2026}{CNRS Postdoctoral Researcher}{LAMSADE, Université Paris Dauphine-PSL}
   {Host: Jérôme Lang. Independent research at the intersection of social
   choice and machine learning; discovering hidden structure in preference
   data.}
 \entry{2021 -- 2024}{Research Assistant}{AGH University of Kraków}
-  {ERC-funded project led by Piotr Faliszewski. Maps of elections,
-  participatory budgeting, development of \texttt{prefsampling}.} % TODO: ERC project acronym
+  {ERC project PRAGMA led by Piotr Faliszewski. Maps of elections,
+  participatory budgeting, development of \texttt{prefsampling}.}
 \entry{2018 -- 2021}{Teaching and Research Assistant}{Jagiellonian University, Kraków}
-  {Taught exercise sessions in three bachelor courses; co-founded Pabulib.}
+  {Taught three undergraduate courses; initiated Pabulib.}
 
 % ===============================================================
 \section{Education}
 % ===============================================================
-\entry{2017 -- 2023}{PhD in Computer Science}{Jagiellonian University}
-  {Thesis: \emph{Map of Elections}. Advisor: Piotr Faliszewski. Defended
-  with distinction at AGH on 13 May 2024.} % TODO: confirm institution(s) and start year
+\entry{2017 -- 2024}{PhD in Computer Science}{AGH University of Kraków}
+  {Doctoral studies at Jagiellonian University (2017--2023); thesis defended
+  with distinction at AGH on 13 May 2024. Thesis: \emph{Map of Elections}.
+  Advisor: Piotr Faliszewski.}
 \entry{2015 -- 2017}{MSc in Computer Science}{Jagiellonian University}{}
 \entry{2012 -- 2015}{BSc in Computer Science}{Jagiellonian University}{}
 
@@ -89,8 +89,7 @@ participatory budgeting; social choice with language models.
 \entry{2023}{Pragnesh Jay Modi Best Student Paper Award}{AAMAS-2023}
   {For \emph{A Map of Diverse Synthetic Stable Roommates Instances}, with
   N.~Boehmer and K.~Heeger.}
-\entry{2023}{START Fellowship}{Foundation for Polish Science}
-  {Awarded to the most promising young scientists in Poland.}
+\entry{2023}{START Fellowship}{Foundation for Polish Science}{}
 \entry{2018}{Principal Investigator, NCN Preludium grant}{National Science Centre, Poland}
   {Project: \emph{Election Isomorphism Problem}. The project that started
   maps of elections.}
@@ -101,8 +100,7 @@ participatory budgeting; social choice with language models.
 5 journal articles (\emph{Artificial Intelligence}, \emph{JAIR} $\times$2,
 \emph{JCSS}, \emph{Theory and Decision}) and 28 full conference papers
 (IJCAI $\times$11, AAMAS $\times$7, AAAI $\times$5, NeurIPS $\times$2,
-ECAI $\times$2, EMNLP $\times$1).
-Citations: TODO; $h$-index: TODO (Google Scholar, October 2026).
+ECAI $\times$2, Findings of EMNLP $\times$1).
 The full list is provided as a separate document, with the same labels as below. Selected papers:
 \begin{itemize}[label={},leftmargin=2.6em,itemsep=1.5pt]
   \item[{[J4]}] \textbf{S. Szufa}, N. Boehmer, R. Bredereck, P. Faliszewski,
@@ -122,10 +120,11 @@ The full list is provided as a separate document, with the same labels as below.
   \item[{[C28]}] R. Faulkner, \textbf{S. Szufa}, D. Hoyer, T. J. Zhang, R. Bouffanais,
   J. Z. Leibo, Z. Jin. Simulating Democratic Deliberation: Representing
   Pluralistic Preferences through Electoral Systems in Multi-Agent LLMs.
-  \emph{EMNLP-2026}, to appear.
+  \emph{Findings of EMNLP-2026}.
 \end{itemize}
 {\small\color{muted}Authors in computational social choice are usually listed
-alphabetically; the first three papers above list me first as lead author.}
+alphabetically; papers that deviate from alphabetical order list the lead
+author first.}
 
 % ===============================================================
 \section{Software and Datasets}
@@ -133,7 +132,7 @@ alphabetically; the first three papers above list me first as lead author.}
 \entry{2020 -- now}{Pabulib}{\href{https://pabulib.org}{pabulib.org}}
   {Co-founder and lead maintainer. The largest open library of participatory
   budgeting data: 2{,}053 elections from 30 cities in 8 countries,
-  8.6 million votes; used in more than 70 papers.}
+  8.6 million votes; cited in more than 100 papers.}
 \entry{}{prefsampling}{Python library}
   {Author. Sampling synthetic preference data under a wide range of
   statistical cultures; a standard benchmarking tool in computational social
@@ -145,14 +144,13 @@ alphabetically; the first three papers above list me first as lead author.}
 % ===============================================================
 \section{Teaching and Supervision}
 % ===============================================================
-\entry{2018 -- 2021}{Exercise sessions}{Jagiellonian University}
-  {\emph{Introduction to Programming}, \emph{Logic and Set Theory},
-  \emph{Linear Algebra} (bachelor level).}
-\entry{}{Tutorial: Numerical Experiments in Computational Social Choice}{}
-  {Given at AAAI, AAMAS, and IJCAI.} % TODO: add years
-\entry{2021 -- now}{Co-supervision}{AGH University, LAMSADE}
-  {More than ten bachelor's and master's students, several of them coauthors
-  of published papers.} % TODO: confirm, and optionally name students
+\entry{2018 -- 2021}{Undergraduate courses}{Jagiellonian University}
+  {\emph{Introduction to Programming} (one year), \emph{Logic and Set Theory}
+  and \emph{Linear Algebra} (one semester each); groups of about 15 students.}
+\entry{2023 -- 2024}{Tutorial: Experiments in Social Choice}{}
+  {Co-presented at IJCAI 2023, AAMAS 2023, and AAAI 2024.}
+\entry{}{Co-supervision}{}
+  {More than ten BSc and MSc students.}
 
 % ===============================================================
 \section{Service and Leadership}
@@ -161,9 +159,8 @@ alphabetically; the first three papers above list me first as lead author.}
 \entry{}{Program committee member}{NeurIPS, AAAI, AAMAS, IJCAI}{}
 \entry{}{Journal reviewer}{JCSS, Theoretical Computer Science, Social Choice and Welfare}{}
 \entry{2025 -- now}{Co-founder}{Nauka dla Demokracji (Science for Democracy)}
-  {Nonprofit connecting researchers with the officials who run democratic
-  processes; helps municipalities adopt the Method of Equal Shares; home of
-  Pabulib.}
+  {Nonprofit created to bring the Method of Equal Shares to Polish
+  municipalities.}
 \entry{2021}{President}{Jagiellonian University PhD Students' Association}{}
 \entry{2020}{Plenipotentiary}{Polish Association of Doctoral Candidates}{}
 
@@ -179,6 +176,13 @@ alphabetically; the first three papers above list me first as lead author.}
 % TODO (optional): add the host of each visit
 
 % ===============================================================
+\section{Invited Talks}
+% ===============================================================
+\entry{2025}{Dagstuhl Seminar 25401}{Societal Impact of Computational Social Choice, Germany}{}
+\entry{2024}{Participatory Budgeting Workshop}{Society for Social Choice and Welfare}{}
+\entry{2022}{Computational and Topological Social Choice Workshop}{Society for Social Choice and Welfare}{}
+
+% ===============================================================
 \section{Other Experience}
 % ===============================================================
 \entry{2020}{Optimization Consultant}{PCG Academia}
@@ -190,18 +194,5 @@ alphabetically; the first three papers above list me first as lead author.}
 % ===============================================================
 Polish (native), English (fluent), French (conversational, actively
 improving), Spanish (intermediate).
-
-% ===============================================================
-\section{References}
-% ===============================================================
-\begin{tabularx}{\linewidth}{@{}XX@{}}
-  \textbf{Piotr Faliszewski} (PhD advisor) &
-  \textbf{Jérôme Lang} (postdoc host) \\
-  AGH University of Kraków, Poland &
-  CNRS, LAMSADE, Université Paris Dauphine-PSL \\
-  \href{mailto:faliszew@agh.edu.pl}{faliszew@agh.edu.pl} &
-  \href{mailto:lang@lamsade.dauphine.fr}{lang@lamsade.dauphine.fr} \\
-\end{tabularx}
-% TODO: add the remaining referees EPFL asks for
 
 \end{document}
