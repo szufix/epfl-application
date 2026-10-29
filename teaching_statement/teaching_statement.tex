@@ -14,6 +14,7 @@
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdfauthor={Stanisław Szufa},pdftitle={Stanisław Szufa: Teaching Statement}}
 
 \definecolor{accent}{RGB}{160,20,30}   % same accent as the research statement
 \titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
@@ -39,27 +40,20 @@
 \section{Teaching Philosophy}
 % ===============================================================
 
-My research combines two ways of understanding collective decisions: proving
-what voting rules guarantee, and measuring how they behave on real and
-synthetic data. I want my students to learn both, and to see how each informs
-the other. A theorem tells them what a rule guarantees; an experiment shows
-them how often that guarantee matters in practice. Three principles follow.
+In my research, I prove properties of voting rules, and I also run them on
+real and synthetic data. I would like my students to do both.
 \begin{itemize}
-  \item \emph{Every concept is paired with data.} When I introduce a
-  definition, students also apply it to a concrete instance. In collective
-  decision making this is natural: students can load a real participatory
+  \item \emph{Concepts come with data.} When I introduce a definition, students
+also apply it to a concrete instance. For example, students can load a real participatory
   budget from Pabulib, compute the outcomes of several voting rules, and only
   then study the axioms that explain why the outcomes differ.
-  \item \emph{Students learn to ask questions, not only to answer them.}
-  Alongside standard exercises, I will set open-ended problems, such as
-  finding the statistical model of votes that best describes a city's
-  ballots. Such problems have no answer in the textbook: students must design
-  a method, test it, and defend their conclusions.
-  \item \emph{Computational practice is taught explicitly.} Writing clean,
-  reproducible experimental code is a core skill for computer scientists, yet
-  it is rarely taught as such. I will teach it with \texttt{prefsampling} and
-  \texttt{mapof}, the Python libraries I released, so that students work with
-  research-grade tools from the start.
+  \item \emph{Open-ended problems.} Alongside standard exercises, I will set
+problems without a known answer, such as finding the statistical model of
+votes that best describes a city's ballots. Students then have to choose a
+method themselves and argue for their conclusions.
+  \item \emph{Experimental code as part of the course.} Research-oriented courses rarely teach how to write clean, reproducible code
+for experiments. I will teach it using \texttt{prefsampling} and
+\texttt{mapof}, two Python libraries I co-developed.
 \end{itemize}
 % ===============================================================
 \section{Teaching and Mentoring Experience}
@@ -70,10 +64,11 @@ Programming} (a full-year course), \emph{Logic and Set Theory}, and
 \emph{Linear Algebra} (one semester each) to groups of about fifteen
 undergraduate students.
 For my research community, I co-authored the \emph{Guide to Numerical
-Experiments on Elections}\pub{C15} and released \texttt{prefsampling} and
-\texttt{mapof}, and I co-presented the tutorial \emph{Experiments in Social
+Experiments on Elections}\pub{C15} and co-developed \texttt{prefsampling}
+and \texttt{mapof}, and I co-presented the tutorial \emph{Experiments in Social
 Choice} at IJCAI 2023, AAMAS 2023, and AAAI 2024.
-I have given more than thirty talks.
+I have also given more than thirty research talks, which has made me
+comfortable explaining technical material to mixed audiences.
 
 I have co-supervised more than ten BSc and MSc students, and work with
 students led to conference papers at AAAI 2025\pub{C19} and ECAI
@@ -91,12 +86,11 @@ led an elected body representing doctoral students.
 
 I am prepared to teach core bachelor courses (introductory programming,
 discrete mathematics, algorithms) and master courses in artificial
-intelligence and algorithmic game theory. In large bachelor courses, I would
-apply the same principles at scale: weekly programming and problem-solving
+intelligence and algorithmic game theory. In large bachelor courses, I would use weekly programming and problem-solving
 exercises with quick feedback, automated where possible, and short problems
 during lectures that show me which ideas students have not yet understood.
 Exams would test both proofs and computation.
-I would also like to develop two new courses:
+I would like to develop two new courses:
 \begin{itemize}
   \item \emph{Algorithms for Collective Decisions} (master): voting,
   participatory budgeting, fair division, and matching, with real data
@@ -106,7 +100,7 @@ I would also like to develop two new courses:
   people's behalf, open to students from computer science and the social
   sciences.
 \end{itemize}
-Beyond the classroom, I would like to offer student projects with Swiss
+Student projects could also be done with Swiss
 municipalities that run participatory budgets.
 
 \end{document}
