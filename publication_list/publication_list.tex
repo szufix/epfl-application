@@ -23,24 +23,28 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
 \setlist{nosep,leftmargin=1.2em}
+\interlinepenalty=10000  % never split a publication entry across pages
+
+\input{../shared/header}
 
 \begin{document}
 
-\begin{center}
-  {\LARGE\bfseries Publication List}\\[3pt]
-  {\large Stanisław Szufa}
-\end{center}
-\vspace{2pt}
+\headercontactfalse
+\docheader{Publication List}
 
 \textbf{Summary.} 5 journal articles and 28 conference papers,
 published mainly at the major AI conferences 
 (AAAI, IJCAI, NeurIPS, AAMAS) and in
 \emph{Artificial Intelligence}, \emph{JAIR}, and \emph{JCSS}.
 
+\vspace{6pt}
+
 \textbf{Author ordering.} As is customary in computational social choice,
 authors are usually listed alphabetically, so position in the author list
 does not reflect contribution. Papers that deviate from alphabetical order
 list the lead author first.
+
+\vspace{4pt}
 
 \input{entries}
 

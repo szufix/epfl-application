@@ -20,8 +20,13 @@
 
 \definecolor{accent}{RGB}{160,20,30}   % same accent as the other documents
 \definecolor{muted}{RGB}{90,90,90}
-\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-4pt}{\color{accent!40}\rule{\linewidth}{0.5pt}}]
-\titlespacing*{\section}{0pt}{11pt}{5pt}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{1pt}{\color{accent!35}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{12pt}{5pt}
+% Keep a section heading together with its first entries: start a new page
+% if less than the given space is left.
+\newcommand{\needspace}[1]{\par
+  \ifdim\pagegoal<\maxdimen\ifdim\dimexpr\pagegoal-\pagetotal\relax<#1\relax\newpage\fi\fi}
+\pretocmd{\section}{\needspace{6\baselineskip}}{}{}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{3pt}
 \setlist{nosep,leftmargin=1.1em}
@@ -32,28 +37,31 @@
 \newcommand{\entry}[4]{%
   \par\noindent
   \begin{minipage}[t]{\datecol}\leavevmode{\color{muted}#1}\end{minipage}%
-  \begin{minipage}[t]{\dimexpr\linewidth-\datecol\relax}
+  \begin{minipage}[t]{\dimexpr\linewidth-\datecol\relax}\raggedright
     \textbf{#2}\ifblank{#3}{}{, #3}%
-    \ifblank{#4}{}{\\[1pt]{\small #4}}
+    \ifblank{#4}{}{\\[1pt]{\small\color{black!85}#4\par}}
   \end{minipage}\par\vspace{3pt}}
+% One selected paper, with its label in the date column: \paper{label}{text}
+\newcommand{\paper}[2]{%
+  \par\noindent
+  \begin{minipage}[t]{\datecol}\leavevmode{\color{muted}[#1]}\end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\datecol\relax}\raggedright
+    #2
+  \end{minipage}\par\vspace{3pt}}
+
+\input{../shared/header}
 
 \begin{document}
 
 % ===============================================================
-\begin{center}
-  {\LARGE\bfseries Stanisław Szufa}\\[4pt]
-  {\large Curriculum Vitae}\\[6pt]
-  {\small
-  University of Geneva, Switzerland \;$\cdot$\;
-  \href{mailto:stanislaw.szufa@unige.ch}{stanislaw.szufa@unige.ch} \;$\cdot$\;
-  +41 76 472 16 09\\[1pt]
-  \href{https://szufa.pl}{szufa.pl} \;$\cdot$\;
-  \href{https://github.com/szufa}{github.com/szufa}}
-\end{center}
+\docheader[\href{https://szufa.pl}{szufa.pl}\headersep
+  \href{https://github.com/szufa}{github.com/szufa}]{Curriculum Vitae}
 
-\textbf{Research area.} Computational social choice, in particular maps of
-elections, participatory budgeting, experimental methods, and social choice
-with language models.
+\textbf{Research area.} Computational social choice: algorithms and data for
+collective decisions. I~develop methods to compare elections and to test voting
+rules on real and synthetic data, I built the largest open dataset of
+participatory budgeting votes, and I now study whether AI-written summaries
+and LLM agents represent the opinions they aggregate.
 
 % ===============================================================
 \section{Academic Positions}
@@ -80,6 +88,7 @@ structure in preference data.}
   Advisor: Piotr Faliszewski.}
 \entry{2015 -- 2017}{MSc in Computer Science}{Jagiellonian University}{}
 \entry{2012 -- 2015}{BSc in Computer Science}{Jagiellonian University}{}
+\vspace{4pt}
 
 % ===============================================================
 \section{Awards, Fellowships, and Grants}
@@ -93,6 +102,7 @@ structure in preference data.}
 \entry{2018}{Principal Investigator, NCN Preludium grant}{National Science Centre, Poland}
   {Project: \emph{Election Isomorphism Problem}. The project that started
   maps of elections.}
+\vspace{4pt}
 
 % ===============================================================
 \section{Publications}
@@ -102,26 +112,19 @@ structure in preference data.}
 (IJCAI $\times$11, AAMAS $\times$7, AAAI $\times$5, NeurIPS $\times$2,
 ECAI $\times$2, Findings of EMNLP $\times$1).
 The full list is provided as a separate document, with the same labels as below. Selected papers:
-\begin{itemize}[label={},leftmargin=2.6em,itemsep=1.5pt]
-  \item[{[J4]}] \textbf{S. Szufa}, N. Boehmer, R. Bredereck, P. Faliszewski,
+\vspace{3pt}
+\paper{J4}{S. Szufa, N. Boehmer, R. Bredereck, P. Faliszewski,
   R. Niedermeier, P. Skowron, A. Slinko, N. Talmon. Drawing a Map of
-  Elections. \emph{Artificial Intelligence} 343, 2025.
-  \item[{[C3]}] \textbf{S. Szufa}, P. Faliszewski, P. Skowron, A. Slinko, N. Talmon.
-  Drawing a Map of Elections in the Space of Statistical Cultures.
-  \emph{AAMAS-2020}.
-  \item[{[C7]}] \textbf{S. Szufa}, P. Faliszewski, Ł. Janeczko, M. Lackner, A. Slinko,
-  K. Sornat, N. Talmon. How to Sample Approval Elections? \emph{IJCAI-2022}.
-  \item[{[C11]}] P. Faliszewski, J. Flis, D. Peters, G. Pierczyński, P. Skowron,
-  D. Stolicki, \textbf{S. Szufa}, N. Talmon. Participatory Budgeting: Data,
-  Tools and Analysis. \emph{IJCAI-2023}.
-  \item[{[J1]}] N. Boehmer, K. Heeger, \textbf{S. Szufa}. A Map of Diverse Synthetic
-  Stable Matching Instances. \emph{JAIR} 79, 2024 (AAMAS-2023 Best Student
-  Paper Award).
-  \item[{[C28]}] R. Faulkner, \textbf{S. Szufa}, D. Hoyer, T. J. Zhang, R. Bouffanais,
-  J. Z. Leibo, Z. Jin. Simulating Democratic Deliberation: Representing
-  Pluralistic Preferences through Electoral Systems in Multi-Agent LLMs.
-  \emph{Findings of EMNLP-2026}.
-\end{itemize}
+  Elections. \emph{Artificial Intelligence} 343, 2025.}
+\paper{C7}{S. Szufa, P. Faliszewski, Ł. Janeczko, M. Lackner, A. Slinko,
+  K. Sornat, N. Talmon. How to Sample Approval Elections? \emph{IJCAI-2022}.}
+\paper{C11}{P. Faliszewski, J. Flis, D. Peters, G. Pierczyński, P. Skowron,
+  D. Stolicki, S. Szufa, N. Talmon. Participatory Budgeting: Data,
+  Tools and Analysis. \emph{IJCAI-2023}.}
+\paper{J1}{N. Boehmer, K. Heeger, S. Szufa. A Map of Diverse Synthetic
+  Stable Matching Instances. \emph{JAIR} 79, 2024 (journal version of the AAMAS-2023
+  Best Student Paper).}
+\vspace{-2pt}
 {\small\color{muted}Authors in computational social choice are usually listed
 alphabetically; papers that deviate from alphabetical order list the lead
 author first.}
@@ -130,14 +133,14 @@ author first.}
 \section{Software and Datasets}
 % ===============================================================
 \entry{2020 -- now}{Pabulib}{\href{https://pabulib.org}{pabulib.org}}
-  {Founder and lead maintainer. The largest open library of participatory
+  {Founder. The largest open library of participatory
   budgeting data: 2{,}053 elections from 30 cities in 8 countries,
   8.6 million votes; cited in more than 100 papers.}
 \entry{}{prefsampling}{Python library}
   {Co-developer, with Simon Rey. Sampling synthetic preference data under a wide range of
   statistical cultures.}
 \entry{}{mapof}{Python library}
-  {Author. Computing distances between elections and drawing maps of
+  {Developer. Computing distances between elections and drawing maps of
   elections.}
 
 % ===============================================================
@@ -145,9 +148,13 @@ author first.}
 % ===============================================================
 \entry{2018 -- 2021}{Undergraduate courses}{Jagiellonian University}
   {\emph{Introduction to Programming} (one year), \emph{Logic and Set Theory}
-  and \emph{Linear Algebra} (one semester each); groups of about 15 students.}
-\entry{2023 -- 2024}{Tutorial: Experiments in Social Choice}{}
-  {Co-presented at IJCAI 2023, AAMAS 2023, and AAAI 2024.}
+  and \emph{Linear Algebra} (one semester each); groups of about 20 students.}
+\entry{2023 -- 2026}{Tutorials and workshops}{}
+  {\emph{Experiments in Social Choice}, tutorial at IJCAI 2023, AAMAS 2023,
+  and AAAI 2024.\\
+  \emph{Computational Tools for Measuring Diversity, Agreement,
+  and Polarization}, hands-on workshop at the Data Science Institute,
+  University of Chicago, 2026.}
 \entry{}{Co-supervision}{}
   {More than ten BSc and MSc students.}
 
@@ -156,10 +163,8 @@ author first.}
 % ===============================================================
 \entry{2026 -- now}{Editorial board member}{Journal of Artificial Intelligence Research (JAIR)}{}
 \entry{}{Program committee member}{NeurIPS, AAAI, AAMAS, IJCAI}{}
-\entry{}{Journal reviewer}{JCSS, Theoretical Computer Science, Social Choice and Welfare}{}
-\entry{2025 -- now}{Co-founder}{Nauka dla Demokracji (Science for Democracy)}
-  {Nonprofit created to bring the Method of Equal Shares to Polish
-  municipalities.}
+\entry{}{Journal reviewer}{JCSS, TCS, SCW}{}
+\entry{2025 -- now}{Co-founder}{Nauka dla Demokracji (Science for Democracy)}{}
 \entry{2021}{President}{Jagiellonian University PhD Students' Association}{}
 \entry{2020}{Representative}{Polish Association of Doctoral Candidates}{}
 
@@ -191,7 +196,7 @@ author first.}
 % ===============================================================
 \section{Languages}
 % ===============================================================
-Polish (native), English (fluent), French (conversational, actively
-improving), Spanish (intermediate).
+{\raggedright Polish (native), English (fluent), Spanish (intermediate),
+French (conversational).\par}
 
 \end{document}

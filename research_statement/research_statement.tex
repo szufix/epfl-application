@@ -31,13 +31,12 @@
 % Open problem inside a research direction.
 \newcommand{\problem}[1]{\item \textbf{#1}}
 
+\input{../shared/header}
+
 \begin{document}
 
-\begin{center}
-  {\LARGE\bfseries Research Statement}\\[3pt]
-  {\large Stanisław Szufa}
-\end{center}
-\vspace{2pt}
+\headercontactfalse
+\docheader{Research Statement}
 
 % ===============================================================
 \section{Overview: Measuring Collective Decisions}
@@ -80,14 +79,16 @@ received a START fellowship (2023) and the AAMAS 2023 Best Student Paper
 Award. I was then a CNRS postdoc at LAMSADE with J\'er\^ome Lang (2024--2026),
 and I am now a postdoc at the University of Geneva.
 
-\textbf{At EPFL, I will apply these tools to collective decisions in which
-opinions are written in text and aggregated by AI}, such as AI-written
-summaries of public consultations and consensus statements. Methods that
+\textbf{Collective decisions increasingly start from text: people write what
+they think, and AI condenses it into a single summary. At EPFL, I will build
+the tools to check whom such a summary represents, and whom it leaves out.}
+Examples include AI-written summaries of public consultations and consensus
+statements. Methods that
 generate such texts already exist, and some come with guarantees for the texts
 they produce, but there is little work on checking whom a given summary
 represents, whatever method produced it. For example, given the comments that residents submitted
 in a consultation and an AI-written summary of them, how can we measure which
-groups the summary leaves out, and test the measure on real data?
+groups the summary underrepresents, and test the measure on real data?
 
 % ===============================================================
 \section{Past and Current Research}
@@ -124,14 +125,14 @@ roommates and stable matching instances\pub{C9, J1} (Best Student Paper
 Award), of tournaments\pub{C22}, and of fair division instances\pub{C25},
 and used the geometry for preference learning\pub{C8}. To help others use
 this methodology, I co-authored a guide to numerical experiments on
-elections\pub{C15} and co-developed two Python libraries: \texttt{mapof}, for
+elections\pub{C15} and developed two Python libraries: \texttt{mapof}, for
 drawing maps, and \texttt{prefsampling} (with Simon Rey), for sampling
 synthetic preferences.
 
 I also measure the structure within a single election, and these measures are
 the starting point for the auditing tools I propose below. We introduced indices of agreement, diversity, and polarization based on
 \emph{$k$-Kemeny}, which seeks $k$ representative rankings instead of one
-consensus\pub{C10, C27, C24, C26}. We also look for
+consensus\pub{C10, C24, C26}. We also look for
 hidden structure in preference data, such as consistent
 subelections\pub{C13} or the most conflicting pair of
 candidates\pub{C18}; finding the groups of voters that an outcome serves
@@ -191,7 +192,7 @@ each of the three lines of work above in one research direction.
 Here I want to extend maps of elections to texts and to much larger
 instances.
 \begin{itemize}
-  \problem{Maps of deliberation.} When alternatives are texts, two decision
+  \problem{Maps of deliberations.} When alternatives are texts, two decision
   problems can be similar in how people voted, in what the alternatives say,
   or both. One approach is to represent each alternative both by its votes
   and by an embedding of its text, and to match the alternatives of two
@@ -295,17 +296,22 @@ and IJCAI.
 \section{Why EPFL}
 % ===============================================================
 
-EPFL currently has no group in computational social choice. My agenda could
-connect with the work of two colleagues in particular:
+Computational social choice would be a new area at IC, and my agenda shares
+questions with several colleagues:
 \begin{itemize}
-  \item \emph{Bryan Ford}'s work on proof of personhood and e-voting,
-  which becomes relevant as soon as the participatory processes studied in
-  Direction~B move online and must count each resident once while keeping
-  votes secret;
-  \item \emph{Antoine Bosselut}'s NLP group and EPFL's work on open
-  multilingual language models such as Apertus, which the auditing tools of
-  Direction~C would need in order to handle consultations held in several
-  languages, as in Switzerland with its four national languages.
+  \item \emph{Bryan Ford} works on proof of personhood and e-voting, the
+  infrastructure that online democratic processes need. Online participatory
+  budgeting needs both his work, to count each resident once while keeping
+  votes secret, and mine, to choose and test the rule that aggregates the
+  votes.
+  \item \emph{Robert West}'s lab studies how language models shape online
+  discourse, for example how persuasive they are in debates. Direction~C asks
+  the complementary question: whose opinions does an AI system represent when
+  it aggregates them?
+  \item \emph{Antoine Bosselut}'s group builds and evaluates open language
+  models, including Apertus. Checking whether a model represents the opinions
+  it summarizes would be a new kind of evaluation, and an open model makes
+  such audits reproducible.
 \end{itemize}
 I also want to do this work in Switzerland because of its strong tradition of
 voting. Swiss citizens vote on public questions several times a year, and in 2023 the city of Aarau used the

@@ -1,0 +1,32 @@
+% ---------------------------------------------------------------
+%  Shared document header -- Stanisław Szufa, EPFL application
+%  Load after xcolor and hyperref, and after defining the accent colour:
+%    \input{../shared/header}
+%  Usage:
+%    \docheader{Research Statement}        % name, title, contact line, rule
+%    \docheader{}                          % no title (cover letter)
+%    \docheader[extra contact line]{Title} % second contact line (CV)
+%    \headercontactfalse before \docheader    % no contact lines
+% ---------------------------------------------------------------
+\providecolor{muted}{RGB}{90,90,90}
+\newcommand{\headersep}{\enspace{\color{accent!60}\textbullet}\enspace}
+% Contact lines are shown unless a document says \headercontactfalse.
+\newif\ifheadercontact\headercontacttrue
+\newcommand{\docheader}[2][]{%
+  \begin{center}
+    {\LARGE\bfseries\color{accent} Stanisław Szufa}\par
+    \if\relax\detokenize{#2}\relax\else
+      \vspace{3pt}{\large\color{muted} #2}\par
+    \fi
+    \ifheadercontact
+    \vspace{5pt}
+    {\small\color{muted}
+    University of Geneva, Switzerland\par\vspace{1pt}
+    \href{mailto:stanislaw.szufa@unige.ch}{stanislaw.szufa@unige.ch}\headersep
+    +41 76 472 16 09%
+    \if\relax\detokenize{#1}\relax\else\headersep#1\fi\par}
+    \fi
+  \end{center}
+  \vspace{-6pt}
+  {\color{accent!40}\rule{\linewidth}{0.5pt}}\par
+  \vspace{2pt}}

@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathpazo}
 \renewcommand{\ttdefault}{lmtt}  % outline typewriter font (avoids bitmap ectt)
-\usepackage[hmargin=2.5cm,vmargin=1.9cm]{geometry}
+\usepackage[hmargin=2.5cm,vmargin=1.75cm]{geometry}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
@@ -16,26 +16,20 @@
 
 \definecolor{accent}{RGB}{160,20,30}   % same accent as the other documents
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{4pt}
+\setlength{\parskip}{3.5pt}
 \pagestyle{empty}
+
+\input{../shared/header}
 
 \begin{document}
 
-\begin{center}
-  {\LARGE\bfseries\color{accent} Stanisław Szufa}\\[4pt]
-  {\small
-  University of Geneva, Switzerland \;$\cdot$\;
-  \href{mailto:stanislaw.szufa@unige.ch}{stanislaw.szufa@unige.ch} \;$\cdot$\;
-  +41 76 472 16 09}
-\end{center}
-{\color{accent!40}\rule{\linewidth}{0.5pt}}
+\docheader{}
 
 Prof.\ Nate Foster\\
 Chair of the Faculty Recruiting Committee\\
 School of Computer and Communication Sciences\\
 EPFL, Lausanne, Switzerland
 
-\vspace{2pt}
 Dear Professor Foster and members of the Committee,
 
 I am delighted to apply for the position of Tenure Track Assistant Professor
@@ -64,21 +58,23 @@ principal investigator of a National Science Centre grant (NCN Preludium); my
 thesis received the Polish Prime Minister's Award, and I also received a
 START fellowship and the AAMAS 2023 Best Student Paper Award.
 
-At EPFL, I will bring these tools to collective decisions in which opinions
-are written in text and aggregated by AI, for example to measure which
-opinions an AI-written summary of a public consultation leaves out. In Geneva, I already work with votes over texts. I lead a study of all
+Collective decisions increasingly start from text: people write what they
+think, and AI condenses it into a single summary. At EPFL, I will build the
+tools to check whom such a summary represents, and whom it leaves out, for
+example in a public consultation, and extend maps of elections to maps of
+deliberations. In Geneva, I already work with votes over texts. I lead a study of all
 101{,}070 abstentions in the UN General Assembly, with each resolution's
-subject labelled by a language model, and I am a coauthor of a
+subject labeled by a language model, and I am a coauthor of a
 simulation of democratic deliberation among LLM agents (Findings of EMNLP
-2026). My agenda would add computational social
-choice to IC, and it relates to Bryan Ford's work on e-voting
-and proof of personhood and to Antoine Bosselut's work on NLP and open
-multilingual language models such as Apertus. I would also like to continue
-this work in Switzerland, where I live, and where citizens vote on public
-questions several times a year.
+2026). Computational social choice would be a new area at IC, and my agenda
+shares questions with Bryan Ford's work on proof of personhood and e-voting,
+Robert West's work on how language models shape online discourse, and Antoine
+Bosselut's work on open language models such as Apertus. I would like to
+continue this work in Switzerland, where I live and where citizens vote on
+public questions several times a year.
 
 At Jagiellonian University, I taught three undergraduate courses. I have also
-co-presented the tutorial
+presented the tutorial
 \emph{Experiments in Social Choice} at IJCAI 2023, AAMAS 2023, and AAAI 2024,
 and co-supervised more than ten BSc and MSc students, whose work led to papers
 at AAAI 2025 and ECAI 2025. At EPFL, I can teach core bachelor courses such as
@@ -89,9 +85,9 @@ democracy.
 
 Please find enclosed my CV, publication list, research statement, and teaching
 statement; my references are listed in the application. Thank you for
-considering my application. I look forward to hearing from you.
+considering my application.
 
-Yours sincerely,\\[8pt]
+Yours sincerely,\\[4pt]
 Stanisław Szufa
 
 \end{document}
